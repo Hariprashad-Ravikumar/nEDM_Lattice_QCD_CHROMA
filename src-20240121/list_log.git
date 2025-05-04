@@ -1,0 +1,12 @@
+./chroma_lanl
+*   ca69d4d3a 2022-11-21 | Merge branch 'devel' of https://github.com/JeffersonLab/chroma into devel (HEAD -> devel, origin/devel) [Boram Yoon]
+./llvm-project
+* f28c006a5895 2022-06-22 | Bump version to 14.0.6 (HEAD, tag: llvmorg-14.0.6, origin/release/14.x) [Tom Stellard]
+./qdp-jit
+*   b743cb2f 2023-03-03 | Merge pull request #21 from JeffersonLab/hotfix-issue-20 (HEAD -> devel, origin/devel) [Frank Winter]
+./qdpxx
+* 7a4bd2c2 2023-03-03 | Added 32-bit fixes from QDP-JIT issue #22 (HEAD -> devel, origin/devel) [Balint Joo]
+./qmp
+*   3010fef 2021-11-03 | Merge pull request #16 from lattice/hotfix/nvhpc (HEAD -> master, origin/master, origin/HEAD) [Balint Joo]
+./quda
+*   bb6aac0b5 2023-03-24 | Merge pull request #1357 from lattice/hotfix/blk_trlm_tweaks (HEAD -> develop, origin/develop, origin/HEAD) [maddyscientist]
