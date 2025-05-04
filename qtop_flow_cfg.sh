@@ -4,9 +4,9 @@
 #SBATCH -o ./slurm_log.lss
 #SBATCH -e ./slurm_err.lss
 #SBATCH --nodes=8
-#SBATCH -t 05:30:00
-##SBATCH --qos=debug
-#SBATCH -q regular
+#SBATCH -t 00:30:00
+#SBATCH --qos=debug
+##SBATCH -q regular
 #SBATCH --exclusive
 #SBATCH -C gpu
 #SBATCH --gpus-per-node=4
@@ -29,7 +29,7 @@ run_job(){
     export CFG
 
     # path to your one‐and‐only template
-    TEMPLATE=input_cfg_No_HP_GFlow.xml
+    TEMPLATE=input_ggg_cfg.xml
 
     # create a FIFO, write to it in the background
     PIPE=./cfg_${CFG}.fifo
@@ -43,7 +43,7 @@ run_job(){
 }
 
 # List of CFG values
-CFG_VALUES=(19010)
+CFG_VALUES=(12000 18440 18470 18500 18530)
 
 # Loop through each CFG value and call run_job
 for CFG in "${CFG_VALUES[@]}"; do
