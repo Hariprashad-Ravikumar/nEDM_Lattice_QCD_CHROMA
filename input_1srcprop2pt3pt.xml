@@ -1,0 +1,735 @@
+<?xml version="1.0"?>
+
+<chroma>
+<annotation>
+;
+; Chroma input file.
+;
+</annotation>
+
+<Param> 
+  <InlineMeasurements>
+
+
+ 
+  <elem>
+    <Name>LINK_SMEAR</Name>
+    <Frequency>1</Frequency>
+    <Param>
+      <version>3</version>
+      <LinkSmearingType>STOUT_SMEAR</LinkSmearingType>
+      <link_smear_fact>0.125</link_smear_fact>
+      <link_smear_num>1</link_smear_num>
+      <smear_dirs>1 1 1 1</smear_dirs>
+     </Param>
+     <NamedObject>
+      <gauge_id>default_gauge_field</gauge_id>
+      <linksmear_id>hyp_gauge_field</linksmear_id>
+     </NamedObject>
+  </elem>
+
+
+<!-- //////////////////////////////// -->
+<!--      Make source                 -->
+<!-- //////////////////////////////// -->
+
+    <annotation> SRC t0x0y0z0_HP </annotation>
+    <elem>
+      <Name>MAKE_SOURCE</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>6</version>
+        <Source>
+          <version>3</version>
+          <SourceType>SHELL_SOURCE_FAST</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+          <quark_smear_lastP>false</quark_smear_lastP>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>8.0</wvf_param>
+            <wvfIntPar>128</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+        </Source>
+      </Param>
+      <NamedObject>
+        <gauge_id>hyp_gauge_field</gauge_id>
+        <source_id>sh_source.t0x0y0z0_HP</source_id>
+      </NamedObject>
+    </elem>
+
+
+
+<!-- //////////////////////////////// -->
+<!--     Light quark propagators      -->
+<!-- //////////////////////////////// -->
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2390</Mass>
+          <clovCoeff>1.205366</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+              <Mass>-0.2390</Mass>
+              <clovCoeff>1.205366</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25</SmootherTol>
+              <NullVectors>24</NullVectors>
+              <Pre-SmootherApplications>0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+      </Param>
+      <NamedObject>
+        <gauge_id>hyp_gauge_field</gauge_id>
+        <source_id>sh_source.t0x0y0z0_HP</source_id>
+        <prop_id>prop_-0.2390_t0x0y0z0_HP</prop_id>
+        <prop_guess_id>prop_-0.2050_t0x0y0z0_HP</prop_guess_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>sh_source.t0x0y0z0_HP</object_id>
+        </NamedObject>
+    </elem>
+
+
+
+
+
+<!-- /////////////////////////////////// -->
+<!--   SINK SMEARING - FOR FORWARD PROP  -->
+<!-- /////////////////////////////////// -->
+
+
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>SHELL_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>8.0</wvf_param>
+            <wvfIntPar>128</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>hyp_gauge_field</gauge_id>
+        <prop_id>prop_-0.2390_t0x0y0z0_HP</prop_id>
+        <smeared_prop_id>prop_-0.2390_t0x0y0z0_HP_ss</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>hyp_gauge_field</gauge_id>
+        <prop_id>prop_-0.2390_t0x0y0z0_HP</prop_id>
+        <smeared_prop_id>prop_-0.2390_t0x0y0z0_HP_sp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+
+
+
+<!-- //////////////////////////////// -->
+<!--             HADSPEC              -->
+<!-- //////////////////////////////// -->
+
+    <elem>
+      <annotation>
+         Compute the hadron spectrum.
+      </annotation>
+      <Name>HADRON_SPECTRUM</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+        <MesonP>true</MesonP>
+        <CurrentP>true</CurrentP>
+        <BaryonP>true</BaryonP>
+        <ExtVCurrentP>true</ExtVCurrentP>
+        <ExtACurrentP>true</ExtACurrentP>
+        <time_rev>false</time_rev>
+        <mom2_max>0</mom2_max>
+        <avg_equiv_mom>true</avg_equiv_mom>
+       </Param>
+      <NamedObject>
+        <gauge_id>hyp_gauge_field</gauge_id>
+      <sink_pairs>
+            <elem>
+                <first_id>prop_-0.2390_t0x0y0z0_HP_sp</first_id>
+                <second_id>prop_-0.2390_t0x0y0z0_HP_sp</second_id>
+            </elem>
+            <elem>
+                <first_id>prop_-0.2390_t0x0y0z0_HP_ss</first_id>
+                <second_id>prop_-0.2390_t0x0y0z0_HP_ss</second_id>
+            </elem>
+        </sink_pairs>
+      </NamedObject>
+       <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/hadspec_Pavg_.cfg12000_t0x0y0z0_HP.dat.xml</xml_file>
+    </elem>
+
+
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>prop_-0.2390_t0x0y0z0_HP_sp</object_id>
+      </NamedObject>
+    </elem>
+
+
+
+
+
+<!-- ////////////////////////////// -->
+<!--    3pt - Time Separation 10    -->
+<!-- ////////////////////////////// -->
+
+
+    <elem>
+      <Name>SEQSOURCE_FAST</Name>
+      <SmearedProps>true</SmearedProps>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>2</version>
+        <SeqSource>
+          <version>1</version>
+          <SeqSourceType>pion_1-pion_1</SeqSourceType>
+          <j_decay>3</j_decay>
+          <t_sink>16</t_sink>
+          <sink_mom>0 0 0</sink_mom>
+        </SeqSource>
+      </Param>
+      <PropSink>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>SHELL_SINK</SinkType>
+          <j_decay>3</j_decay>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>8.0</wvf_param>
+            <wvfIntPar>128</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+        </Sink>
+      </PropSink>
+      <NamedObject>
+        <prop_ids>
+          <elem>prop_-0.2390_t0x0y0z0_HP_ss</elem>
+        </prop_ids>
+        <seqsource_id>
+          <elem>pion_1_pion_1_-0.2390_t0x0y0z0_HP_t10_px0py0pz0</elem>
+          </seqsource_id>
+        <gauge_id>hyp_gauge_field</gauge_id>
+      </NamedObject>
+   </elem>
+
+
+
+
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2390</Mass>
+          <clovCoeff>1.205366</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+              <Mass>-0.2390</Mass>
+              <clovCoeff>1.205366</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+                <elem>2 2 2 2</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+                <elem>CA_GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12 12 8</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25 0.25</SmootherTol>
+              <NullVectors>24 32</NullVectors>
+              <Pre-SmootherApplications>0 0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8 8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06 5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500 500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500 500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1 1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+      </Param>
+      <NamedObject>
+        <gauge_id>hyp_gauge_field</gauge_id>
+        <source_id>pion_1_pion_1_-0.2390_t0x0y0z0_HP_t10_px0py0pz0</source_id>
+        <prop_id>seqprop_pion_1_pion_1_-0.2390_t0x0y0z0_HP_t10_px0py0pz0</prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>pion_1_pion_1_-0.2390_t0x0y0z0_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+<!-- /////////////////////////////////// -->
+<!--   Wilson flow - FOR FORWARD PROP  -->
+<!-- /////////////////////////////////// -->
+
+<elem>
+<Name>WILSON_FLOW_PROPS</Name>
+<Frequency>1</Frequency>
+<Param>
+<version>1</version>
+<wtime>0.1</wtime>
+<weps>0.01</weps>
+
+
+   <FermState>
+     <Name>SIMPLE_FERM_STATE</Name>
+     <FermionBC>
+       <FermBC>SIMPLE_FERMBC</FermBC>
+       <boundary>1 1 1 -1</boundary>
+     </FermionBC>
+   </FermState>
+ </Param>
+
+ <NamedObject>
+   <gauge_id>hyp_gauge_field</gauge_id>
+   <flowed_gauge_id>wf_gauge_field</flowed_gauge_id>
+
+   <prop_ids>
+     <elem>prop_-0.2390_t0x0y0z0_HP</elem>
+   </prop_ids>
+   <flowed_prop_ids>
+     <elem>FLOWED_prop_-0.2390_t0x0y0z0_HP</elem>
+   </flowed_prop_ids>
+
+   <seqprop_ids>
+     <elem>seqprop_pion_1_pion_1_-0.2390_t0x0y0z0_HP_t10_px0py0pz0</elem>
+   </seqprop_ids>
+   <flowed_seqprop_ids>
+     <elem>FLOWED_seqprop_pion_1_pion_1_-0.2390_t0x0y0z0_HP_t10_px0py0pz0</elem>
+   </flowed_seqprop_ids>
+ </NamedObject>
+</elem>
+
+
+   <elem>
+      <annotation>
+        3pt contraction 
+      </annotation>
+      <Name>BUILDING_BLOCKS</Name>
+      <Frequency>1</Frequency>
+      <Param>
+       <version>6</version>
+       <use_sink_offset>false</use_sink_offset>
+       <mom2_max>0</mom2_max>
+       <links_max>1</links_max>
+       <canonical>false</canonical>
+       <time_reverse>false</time_reverse>
+       <translate>false</translate>
+       <CoalescedOutput>true</CoalescedOutput>
+       <FermState>
+         <Name>SIMPLE_FERM_STATE</Name>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+       </FermState>
+      </Param>
+
+      <BuildingBlocks>
+       <OutFileName>/pscratch/sd/h/hari_8/nEDM_project_LANL/pion_1_pion_1.px0py0pz0.t0x0y0z0_HP.out</OutFileName>
+       <GaugeId>hyp_gauge_field</GaugeId>
+       <FrwdPropId>prop_-0.2390_t0x0y0z0_HP</FrwdPropId>
+       <BkwdProps>
+         <elem>
+           <BkwdPropId>seqprop_pion_1_pion_1_-0.2390_t0x0y0z0_HP_t10_px0py0pz0</BkwdPropId>
+           <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+           <GammaInsertion>0</GammaInsertion>
+           <Flavor>U</Flavor>
+           <BBFileNamePattern>/pscratch/sd/h/hari_8/nEDM_project_LANL/pion_1_pion_1.px0py0pz0.t0x0y0z0_HP.bb</BBFileNamePattern>
+         </elem>
+       </BkwdProps>
+      </BuildingBlocks>
+      <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/pion_1_pion_1.px0py0pz0.t0x0y0z0_HP.xml</xml_file>
+    </elem>
+
+
+
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>seqprop_pion_1_pion_1_-0.2390_t0x0y0z0_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+
+<!-- /////////////////////////////////// -->
+<!--   SINK SMEARING - FOR FLOWED FORWARD PROP  -->
+<!-- /////////////////////////////////// -->
+
+
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>SHELL_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>8.0</wvf_param>
+            <wvfIntPar>128</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>wf_gauge_field</gauge_id>
+        <prop_id>FLOWED_prop_-0.2390_t0x0y0z0_HP</prop_id>
+        <smeared_prop_id>FLOWED_prop_-0.2390_t0x0y0z0_HP_ss</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>wf_gauge_field</gauge_id>
+        <prop_id>FLOWED_prop_-0.2390_t0x0y0z0_HP</prop_id>
+        <smeared_prop_id>FLOWED_prop_-0.2390_t0x0y0z0_HP_sp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+
+
+
+<!-- //////////////////////////////// -->
+<!--             HADSPEC              -->
+<!-- //////////////////////////////// -->
+
+    <elem>
+      <annotation>
+         Compute the hadron spectrum.
+      </annotation>
+      <Name>HADRON_SPECTRUM</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+        <MesonP>true</MesonP>
+        <CurrentP>true</CurrentP>
+        <BaryonP>true</BaryonP>
+        <ExtVCurrentP>true</ExtVCurrentP>
+        <ExtACurrentP>true</ExtACurrentP>
+        <time_rev>false</time_rev>
+        <mom2_max>0</mom2_max>
+        <avg_equiv_mom>true</avg_equiv_mom>
+       </Param>
+      <NamedObject>
+        <gauge_id>wf_gauge_field</gauge_id>
+      <sink_pairs>
+            <elem>
+                <first_id>FLOWED_prop_-0.2390_t0x0y0z0_HP_sp</first_id>
+                <second_id>FLOWED_prop_-0.2390_t0x0y0z0_HP_sp</second_id>
+            </elem>
+            <elem>
+                <first_id>FLOWED_prop_-0.2390_t0x0y0z0_HP_ss</first_id>
+                <second_id>FLOWED_prop_-0.2390_t0x0y0z0_HP_ss</second_id>
+            </elem>
+        </sink_pairs>
+      </NamedObject>
+       <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/_FLOWED_hadspec_Pavg_.cfg12000_t0x0y0z0_HP.dat.xml</xml_file>
+    </elem>
+
+
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_prop_-0.2390_t0x0y0z0_HP_sp</object_id>
+      </NamedObject>
+    </elem>
+
+
+
+
+
+<!-- ////////////////////////////// -->
+<!--    3pt - Time Separation 10    -->
+<!-- ////////////////////////////// -->
+
+
+   <elem>
+      <annotation>
+        3pt contraction 
+      </annotation>
+      <Name>BUILDING_BLOCKS</Name>
+      <Frequency>1</Frequency>
+      <Param>
+       <version>6</version>
+       <use_sink_offset>false</use_sink_offset>
+       <mom2_max>0</mom2_max>
+       <links_max>1</links_max>
+       <canonical>false</canonical>
+       <time_reverse>false</time_reverse>
+       <translate>false</translate>
+       <CoalescedOutput>true</CoalescedOutput>
+       <FermState>
+         <Name>SIMPLE_FERM_STATE</Name>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+       </FermState>
+      </Param>
+
+      <BuildingBlocks>
+       <OutFileName>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_pion_1_pion_1.px0py0pz0.t0x0y0z0_HP.out</OutFileName>
+       <GaugeId>wf_gauge_field</GaugeId>
+       <FrwdPropId>FLOWED_prop_-0.2390_t0x0y0z0_HP</FrwdPropId>
+       <BkwdProps>
+         <elem>
+           <BkwdPropId>FLOWED_seqprop_pion_1_pion_1_-0.2390_t0x0y0z0_HP_t10_px0py0pz0</BkwdPropId>
+           <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+           <GammaInsertion>0</GammaInsertion>
+           <Flavor>U</Flavor>
+           <BBFileNamePattern>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_pion_1_pion_1.px0py0pz0.t0x0y0z0_HP.bb</BBFileNamePattern>
+         </elem>
+       </BkwdProps>
+      </BuildingBlocks>
+      <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_pion_1_pion_1.px0py0pz0.t0x0y0z0_HP.xml</xml_file>
+    </elem>
+
+
+
+
+  </InlineMeasurements>
+  <nrow>48 48 48 128</nrow>
+  </Param>
+  <Cfg>
+    <cfg_type>SCIDAC</cfg_type>
+    <cfg_file>/pscratch/sd/h/hari_8/cl21_48_128_b6p3_m0p2390_m0p2050_cfg_12000.lime</cfg_file>
+    <parallel_io>true</parallel_io>
+  </Cfg>
+</chroma>
+

@@ -1,0 +1,61 @@
+require "qcdlib/gradient-flow"
+require "qcdlib/gauge-loops/plaq1"
+require "qcdlib/gauge-loops/twist1"
+require "qcdlib/gauge-loops/rect2"
+require "stdlib"
+require "gauge"
+require "qcd"
+require "qcdlib/symmetric-EQ"
+
+
+function open_qdpc_read(L, name)
+  local qdp_r = qcd.qdpc.Reader(L, name)
+  return qdp_r
+end
+
+function load_qdpc_gauge(L, name)
+  local qdp_r, finfo = open_qdpc_read(L, name)
+  local gauge, rinfo = qdp_r:ColorMatrix(4)
+  qdp_r:close()
+  return gauge
+end
+
+
+Nx = 48
+Ny = 48
+Nz = 48
+Nt = 128
+latsize = {Nx,Ny,Nz,Nt}
+network_geom = {4, 4, 4, 3}
+Lattice = qcd.lattice{Nx,Ny,Nz,Nt}
+
+a = 0.114
+flow_time = {0}
+-- flow_time = {0, 0.10, 0.41, 0.92, 1.64, 2.56, 3.68, 5.01, 6.54, 8.28, 10.22} 
+h5_writer = qcd.hdf5.Writer("/pscratch/sd/h/hari_8/nEDM_project_LANL/save_GF_h5/save_EQ_GradientFlow_cl21_48_128_b6p3_m0p2390_m0p2050_cfg_12000_tutorial_beta_6d3_tau__a_units_.h5")
+
+force = qcdLib.GaugeLoops.flow_force({ plaq1 = 6.3});
+cfg = 12000
+cfg_filename = "/pscratch/sd/h/hari_8/cl21_48_128_b6p3_m0p2390_m0p2050_cfg_12000.lime"
+U = load_qdpc_gauge(Lattice, cfg_filename)
+
+for _, tau in ipairs(flow_time) do 
+  print("tau = ", tau)
+  local V = qcdLib.GradientFlow.flow(force, U, (tau));
+  -- local EQ_simple = qcdLib.symmetricEQ(V); 
+  local EQ_improved = qcdLib.symmetricEQ(V, {improved = true});
+  local path_to_E = string.format("/cfg_%s/symmetricE/flow_time_%s_a", cfg, tau)
+  local path_to_Q = string.format("/cfg_%s/symmetricQ/flow_time_%s_a", cfg, tau)
+  local path_to_E_improved = string.format("/cfg_%s/improvedE/flow_time_%s_a", cfg, tau)
+  local path_to_Q_improved = string.format("/cfg_%s/improvedQ/flow_time_%s_a", cfg, tau)
+  local write_options = { transfer = "collective", precision = "double" }
+  h5_writer:write(path_to_E, EQ_improved.symmetricE, write_options) 
+  h5_writer:write(path_to_Q, EQ_improved.symmetricQ, write_options)
+  h5_writer:write(path_to_E_improved, EQ_improved.improvedE, write_options)
+  h5_writer:write(path_to_Q_improved, EQ_improved.improvedQ, write_options) 
+end
+print("done")
+
+
+
+h5_writer:close()

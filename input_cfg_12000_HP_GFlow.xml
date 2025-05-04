@@ -1,0 +1,3215 @@
+<?xml version="1.0"?>
+
+<chroma>
+<annotation>
+;
+; Chroma input file.
+;
+</annotation>
+
+<Param> 
+  <InlineMeasurements>
+
+ <elem>
+   <Name>LINK_SMEAR</Name>
+   <Frequency>1</Frequency>
+   <Param>
+     <version>3</version>
+      <LinkSmearingType>STOUT_SMEAR</LinkSmearingType>
+      <link_smear_fact>0.125</link_smear_fact>
+      <link_smear_num>1</link_smear_num>
+      <smear_dirs>1 1 1 1</smear_dirs>
+    </Param>
+    <NamedObject>
+     <gauge_id>default_gauge_field</gauge_id>
+     <linksmear_id>stout1_gauge_field</linksmear_id>
+    </NamedObject>
+ </elem>
+
+ <elem>
+   <Name>LINK_SMEAR</Name>
+   <Frequency>1</Frequency>
+   <Param>
+     <version>2</version>
+      <LinkSmearingType>STOUT_SMEAR</LinkSmearingType>
+      <link_smear_fact>0.08</link_smear_fact>
+      <link_smear_num>20</link_smear_num>
+      <no_smear_dir>3</no_smear_dir>
+    </Param>
+    <NamedObject>
+     <gauge_id>default_gauge_field</gauge_id>
+     <linksmear_id>stout20_gauge_field</linksmear_id>
+    </NamedObject>
+ </elem>
+
+
+<!-- //////////////////////////////// -->
+<!--      Make source                 -->
+<!-- //////////////////////////////// -->
+
+    <annotation> SRC t28x33y36z28_HP </annotation>
+    <elem>
+      <Name>MAKE_SOURCE</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>6</version>
+        <Source>
+          <version>3</version>
+          <SourceType>SHELL_SOURCE_FAST</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>33 36 28 28</t_srce>
+          <quark_smear_lastP>false</quark_smear_lastP>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>7.0</wvf_param>
+            <wvfIntPar>91</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+        </Source>
+      </Param>
+      <NamedObject>
+        <gauge_id>stout20_gauge_field</gauge_id>
+        <source_id>sh_source.t28x33y36z28_HP</source_id>
+      </NamedObject>
+    </elem>
+
+    <annotation> SRC t60x45y36z28_HP </annotation>
+    <elem>
+      <Name>MAKE_SOURCE</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>6</version>
+        <Source>
+          <version>3</version>
+          <SourceType>SHELL_SOURCE_FAST</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>45 36 28 60</t_srce>
+          <quark_smear_lastP>false</quark_smear_lastP>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>7.0</wvf_param>
+            <wvfIntPar>91</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+        </Source>
+      </Param>
+      <NamedObject>
+        <gauge_id>stout20_gauge_field</gauge_id>
+        <source_id>sh_source.t60x45y36z28_HP</source_id>
+      </NamedObject>
+    </elem>
+
+
+    <annotation> SRC t92x33y36z28_HP </annotation>
+    <elem>
+      <Name>MAKE_SOURCE</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>6</version>
+        <Source>
+          <version>3</version>
+          <SourceType>SHELL_SOURCE_FAST</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>33 36 28 92</t_srce>
+          <quark_smear_lastP>false</quark_smear_lastP>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>7.0</wvf_param>
+            <wvfIntPar>91</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+        </Source>
+      </Param>
+      <NamedObject>
+        <gauge_id>stout20_gauge_field</gauge_id>
+        <source_id>sh_source.t92x33y36z28_HP</source_id>
+      </NamedObject>
+    </elem>
+
+    <annotation> SRC t124x45y36z28_HP </annotation>
+    <elem>
+      <Name>MAKE_SOURCE</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>6</version>
+        <Source>
+          <version>3</version>
+          <SourceType>SHELL_SOURCE_FAST</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>45 36 28 124</t_srce>
+          <quark_smear_lastP>false</quark_smear_lastP>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>7.0</wvf_param>
+            <wvfIntPar>91</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+        </Source>
+      </Param>
+      <NamedObject>
+        <gauge_id>stout20_gauge_field</gauge_id>
+        <source_id>sh_source.t124x45y36z28_HP</source_id>
+      </NamedObject>
+    </elem>
+
+
+
+<!-- //////////////////////////////// -->
+<!--   Strange quark propagators      -->
+<!-- //////////////////////////////// -->
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2050</Mass>
+          <clovCoeff>1.20536588031793</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+	      <Mass>-0.2050</Mass>
+              <clovCoeff>1.20536588031793</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25</SmootherTol>
+              <NullVectors>24</NullVectors>
+              <Pre-SmootherApplications>0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+
+      </Param>
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+        <source_id>sh_source.t28x33y36z28_HP</source_id>
+        <prop_id>prop_-0.2050_t28x33y36z28_HP</prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2050</Mass>
+          <clovCoeff>1.20536588031793</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+	      <Mass>-0.2050</Mass>
+              <clovCoeff>1.20536588031793</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25</SmootherTol>
+              <NullVectors>24</NullVectors>
+              <Pre-SmootherApplications>0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+
+      </Param>
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+        <source_id>sh_source.t60x45y36z28_HP</source_id>
+        <prop_id>prop_-0.2050_t60x45y36z28_HP</prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2050</Mass>
+          <clovCoeff>1.20536588031793</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+	      <Mass>-0.2050</Mass>
+              <clovCoeff>1.20536588031793</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25</SmootherTol>
+              <NullVectors>24</NullVectors>
+              <Pre-SmootherApplications>0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+      </Param>
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+        <source_id>sh_source.t92x33y36z28_HP</source_id>
+        <prop_id>prop_-0.2050_t92x33y36z28_HP</prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2050</Mass>
+          <clovCoeff>1.20536588031793</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+	      <Mass>-0.2050</Mass>
+              <clovCoeff>1.20536588031793</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25</SmootherTol>
+              <NullVectors>24</NullVectors>
+              <Pre-SmootherApplications>0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+
+      </Param>
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+        <source_id>sh_source.t124x45y36z28_HP</source_id>
+        <prop_id>prop_-0.2050_t124x45y36z28_HP</prop_id>
+      </NamedObject>
+    </elem>
+
+
+
+
+
+<!-- //////////////////////////////// -->
+<!--     Light quark propagators      -->
+<!-- //////////////////////////////// -->
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2390</Mass>
+          <clovCoeff>1.20536588031793</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+              <Mass>-0.2390</Mass>
+              <clovCoeff>1.20536588031793</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+                <elem>2 2 2 2</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+                <elem>CA_GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12 12 8</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25 0.25</SmootherTol>
+              <NullVectors>24 32</NullVectors>
+              <Pre-SmootherApplications>0 0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8 8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06 5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500 500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500 500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1 1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+      </Param>
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+        <source_id>sh_source.t28x33y36z28_HP</source_id>
+        <prop_id>prop_-0.2390_t28x33y36z28_HP</prop_id>
+        <prop_guess_id>prop_-0.2050_t28x33y36z28_HP</prop_guess_id> 
+      </NamedObject>
+    </elem>
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>sh_source.t28x33y36z28_HP</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2390</Mass>
+          <clovCoeff>1.20536588031793</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+              <Mass>-0.2390</Mass>
+              <clovCoeff>1.20536588031793</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+                <elem>2 2 2 2</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+                <elem>CA_GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12 12 8</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25 0.25</SmootherTol>
+              <NullVectors>24 32</NullVectors>
+              <Pre-SmootherApplications>0 0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8 8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06 5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500 500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500 500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1 1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+      </Param>
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+        <source_id>sh_source.t60x45y36z28_HP</source_id>
+        <prop_id>prop_-0.2390_t60x45y36z28_HP</prop_id>
+        <prop_guess_id>prop_-0.2050_t60x45y36z28_HP</prop_guess_id>  
+      </NamedObject>
+    </elem>
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>sh_source.t60x45y36z28_HP</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2390</Mass>
+          <clovCoeff>1.20536588031793</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+              <Mass>-0.2390</Mass>
+              <clovCoeff>1.20536588031793</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+                <elem>2 2 2 2</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+                <elem>CA_GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12 12 8</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25 0.25</SmootherTol>
+              <NullVectors>24 32</NullVectors>
+              <Pre-SmootherApplications>0 0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8 8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06 5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500 500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500 500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1 1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+
+      </Param>
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+        <source_id>sh_source.t92x33y36z28_HP</source_id>
+        <prop_id>prop_-0.2390_t92x33y36z28_HP</prop_id>
+        <prop_guess_id>prop_-0.2050_t92x33y36z28_HP</prop_guess_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>sh_source.t92x33y36z28_HP</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2390</Mass>
+          <clovCoeff>1.20536588031793</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+              <Mass>-0.2390</Mass>
+              <clovCoeff>1.20536588031793</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+                <elem>2 2 2 2</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+                <elem>CA_GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12 12 8</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25 0.25</SmootherTol>
+              <NullVectors>24 32</NullVectors>
+              <Pre-SmootherApplications>0 0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8 8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06 5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500 500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500 500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1 1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+      </Param>
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+        <source_id>sh_source.t124x45y36z28_HP</source_id>
+        <prop_id>prop_-0.2390_t124x45y36z28_HP</prop_id>
+         <prop_guess_id>prop_-0.2050_t124x45y36z28_HP</prop_guess_id> 
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>sh_source.t124x45y36z28_HP</object_id>
+        </NamedObject>
+    </elem>
+
+
+
+
+<!-- /////////////////////////////////// -->
+<!--   SINK SMEARING - FOR FORWARD PROP  -->
+<!-- /////////////////////////////////// -->
+
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 59</tA>
+        <factorA>1.0</factorA>
+        <propA>prop_-0.2390_t28x33y36z28_HP</propA>
+        <tB>60 91</tB>
+        <factorB>1.0</factorB>
+        <propB>prop_-0.2390_t60x45y36z28_HP</propB>
+        <propApB>prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 91</tA>
+        <factorA>1.0</factorA>
+        <propA>prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</propA>
+        <tB>92 123</tB>
+        <factorB>1.0</factorB>
+        <propB>prop_-0.2390_t92x33y36z28_HP</propB>
+        <propApB>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 123</tA>
+        <factorA>1.0</factorA>
+        <propA>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</propA>
+        <tB>124 27</tB>
+        <factorB>1.0</factorB>
+        <propB>prop_-0.2390_t124x45y36z28_HP</propB>
+        <propApB>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>SHELL_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>7.0</wvf_param>
+            <wvfIntPar>91</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>stout20_gauge_field</gauge_id>
+        <prop_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</prop_id>
+        <smeared_prop_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>stout20_gauge_field</gauge_id>
+        <prop_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</prop_id>
+        <smeared_prop_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+
+<!-- //////////////////////////////// -->
+<!--             HADSPEC              -->
+<!-- //////////////////////////////// -->
+
+    <elem>
+      <annotation>
+         Compute the hadron spectrum.
+      </annotation>
+      <Name>HADRON_SPECTRUM</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+        <MesonP>true</MesonP>
+        <CurrentP>true</CurrentP>
+        <BaryonP>true</BaryonP>
+        <ExtVCurrentP>true</ExtVCurrentP>
+        <ExtACurrentP>true</ExtACurrentP>
+        <time_rev>false</time_rev>
+        <mom2_max>10</mom2_max>
+        <avg_equiv_mom>true</avg_equiv_mom>
+        <Multi_Srcs>
+          <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+          <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+          <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+          <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+        </Multi_Srcs>
+       </Param>
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+      <sink_pairs>
+            <elem>
+                <first_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</first_id>
+                <second_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</second_id>
+            </elem>
+            <elem>
+                <first_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</first_id>
+                <second_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</second_id>
+            </elem>
+        </sink_pairs>
+      </NamedObject>
+       <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p0_hadspec_Pavg_cl21_48_128_b6p3_m0p2390_m0p2050.0_18448_t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP.dat.xml</xml_file>
+    </elem>
+
+
+
+
+<!-- ////////////////////////////// -->
+<!--    3pt - Time Separation 18    -->
+<!-- ////////////////////////////// -->
+
+    <elem>
+      <Name>SEQSOURCE_FAST</Name>
+      <SmearedProps>true</SmearedProps>
+      <multi_tSinks>38 70 102 6</multi_tSinks>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>2</version>
+        <SeqSource>
+          <version>1</version>
+          <SeqSourceType>NUCL_U_MIXED_NONREL</SeqSourceType>
+          <j_decay>3</j_decay>
+          <t_sink>38</t_sink>
+          <sink_mom>0 0 0</sink_mom>
+        </SeqSource>
+      </Param>
+      <PropSink>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>SHELL_SINK</SinkType>
+          <j_decay>3</j_decay>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>7.0</wvf_param>
+            <wvfIntPar>91</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+        </Sink>
+      </PropSink>
+      <NamedObject>
+        <prop_ids>
+          <elem>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</elem>
+          <elem>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</elem>
+        </prop_ids>
+        <seqsource_id>
+          <elem>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28_HP_t10_px0py0pz0</elem>
+          <elem>NUCL_U_MIXED_NONREL_-0.2390_t60x45y36z28_HP_t10_px0py0pz0</elem>
+          <elem>NUCL_U_MIXED_NONREL_-0.2390_t92x33y36z28_HP_t10_px0py0pz0</elem>
+          <elem>NUCL_U_MIXED_NONREL_-0.2390_t124x45y36z28_HP_t10_px0py0pz0</elem>
+          </seqsource_id>
+        <gauge_id>stout20_gauge_field</gauge_id>
+      </NamedObject>
+   </elem>
+
+
+
+      <elem>
+        <Name>QPROPADD</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+   <factorA>1.0</factorA>
+         <propA>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28_HP_t10_px0py0pz0</propA>
+   <factorB>1.0</factorB>
+         <propB>NUCL_U_MIXED_NONREL_-0.2390_t60x45y36z28_HP_t10_px0py0pz0</propB>
+         <propApB>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28_HP_t10_px0py0pz0</propApB>
+        </NamedObject>
+      </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_U_MIXED_NONREL_-0.2390_t60x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+      <elem>
+        <Name>QPROPADD</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+   <factorA>1.0</factorA>
+         <propA>NUCL_U_MIXED_NONREL_-0.2390_t92x33y36z28_HP_t10_px0py0pz0</propA>
+   <factorB>1.0</factorB>
+         <propB>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28_HP_t10_px0py0pz0</propB>
+         <propApB>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP_t10_px0py0pz0</propApB>
+        </NamedObject>
+      </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_U_MIXED_NONREL_-0.2390_t92x33y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+      <elem>
+        <Name>QPROPADD</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+   <factorA>1.0</factorA>
+         <propA>NUCL_U_MIXED_NONREL_-0.2390_t124x45y36z28_HP_t10_px0py0pz0</propA>
+   <factorB>1.0</factorB>
+         <propB>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP_t10_px0py0pz0</propB>
+         <propApB>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</propApB>
+        </NamedObject>
+      </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_U_MIXED_NONREL_-0.2390_t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2390</Mass>
+          <clovCoeff>1.20536588031793</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+              <Mass>-0.2390</Mass>
+              <clovCoeff>1.20536588031793</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+                <elem>2 2 2 2</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+                <elem>CA_GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12 12 8</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25 0.25</SmootherTol>
+              <NullVectors>24 32</NullVectors>
+              <Pre-SmootherApplications>0 0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8 8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06 5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500 500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500 500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1 1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+
+      </Param>
+
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+        <source_id>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</source_id>
+        <prop_id>seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_U_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+   <elem>
+      <annotation>
+        3pt contraction 
+      </annotation>
+      <Name>BUILDING_BLOCKS</Name>
+      <Frequency>1</Frequency>
+      <Param>
+       <version>6</version>
+       <use_sink_offset>false</use_sink_offset>
+       <mom2_max>10</mom2_max>
+       <links_max>1</links_max>
+       <canonical>false</canonical>
+       <time_reverse>false</time_reverse>
+       <translate>false</translate>
+       <CoalescedOutput>true</CoalescedOutput>
+       <FermState>
+         <Name>SIMPLE_FERM_STATE</Name>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+       </FermState>
+       <Multi_Srcs>
+         <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+         <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+         <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+         <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+       </Multi_Srcs>
+      </Param>
+
+      <BuildingBlocks>
+       <OutFileName>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p0_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.out</OutFileName>
+       <GaugeId>stout1_gauge_field</GaugeId>
+       <FrwdPropId>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</FrwdPropId>
+       <BkwdProps>
+         <elem>
+           <BkwdPropId>seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</BkwdPropId>
+           <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+           <GammaInsertion>0</GammaInsertion>
+           <Flavor>U</Flavor>
+           <BBFileNamePattern>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p0_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.bb</BBFileNamePattern>
+         </elem>
+       </BkwdProps>
+      </BuildingBlocks>
+      <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p0_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.xml</xml_file>
+    </elem>
+
+
+
+    <elem>
+      <Name>SEQSOURCE_FAST</Name>
+      <SmearedProps>true</SmearedProps>
+      <multi_tSinks>38 70 102 6</multi_tSinks>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>2</version>
+        <SeqSource>
+          <version>1</version>
+          <SeqSourceType>NUCL_D_MIXED_NONREL</SeqSourceType>
+          <j_decay>3</j_decay>
+          <t_sink>38</t_sink>
+          <sink_mom>0 0 0</sink_mom>
+        </SeqSource>
+      </Param>
+      <PropSink>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>SHELL_SINK</SinkType>
+          <j_decay>3</j_decay>
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>7.0</wvf_param>
+            <wvfIntPar>91</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+        </Sink>
+      </PropSink>
+      <NamedObject>
+        <prop_ids>
+          <elem>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</elem>
+        </prop_ids>
+        <seqsource_id>
+          <elem>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28_HP_t10_px0py0pz0</elem>
+          <elem>NUCL_D_MIXED_NONREL_-0.2390_t60x45y36z28_HP_t10_px0py0pz0</elem>
+          <elem>NUCL_D_MIXED_NONREL_-0.2390_t92x33y36z28_HP_t10_px0py0pz0</elem>
+          <elem>NUCL_D_MIXED_NONREL_-0.2390_t124x45y36z28_HP_t10_px0py0pz0</elem>
+        </seqsource_id>
+        <gauge_id>stout20_gauge_field</gauge_id>
+      </NamedObject>
+   </elem>
+
+
+
+      <elem>
+        <Name>QPROPADD</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+   <factorA>1.0</factorA>
+         <propA>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28_HP_t10_px0py0pz0</propA>
+   <factorB>1.0</factorB>
+         <propB>NUCL_D_MIXED_NONREL_-0.2390_t60x45y36z28_HP_t10_px0py0pz0</propB>
+         <propApB>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28_HP_t10_px0py0pz0</propApB>
+        </NamedObject>
+      </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_D_MIXED_NONREL_-0.2390_t60x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+      <elem>
+        <Name>QPROPADD</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+   <factorA>1.0</factorA>
+         <propA>NUCL_D_MIXED_NONREL_-0.2390_t92x33y36z28_HP_t10_px0py0pz0</propA>
+   <factorB>1.0</factorB>
+         <propB>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28_HP_t10_px0py0pz0</propB>
+         <propApB>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP_t10_px0py0pz0</propApB>
+        </NamedObject>
+      </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_D_MIXED_NONREL_-0.2390_t92x33y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+      <elem>
+        <Name>QPROPADD</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+   <factorA>1.0</factorA>
+         <propA>NUCL_D_MIXED_NONREL_-0.2390_t124x45y36z28_HP_t10_px0py0pz0</propA>
+   <factorB>1.0</factorB>
+         <propB>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP_t10_px0py0pz0</propB>
+         <propApB>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</propApB>
+        </NamedObject>
+      </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_D_MIXED_NONREL_-0.2390_t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <numRetries>1</numRetries>
+
+        <FermionAction>
+          <FermAct>CLOVER</FermAct>
+          <Mass>-0.2390</Mass>
+          <clovCoeff>1.20536588031793</clovCoeff>
+          <AnisoParam>
+            <anisoP>false</anisoP>
+            <t_dir>3</t_dir>
+            <xi_0>1.0</xi_0>
+            <nu>1.0</nu>
+          </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+
+
+          <InvertParam>
+            <invType>QUDA_MULTIGRID_CLOVER_INVERTER</invType>
+            <CloverParams>
+              <Mass>-0.2390</Mass>
+              <clovCoeff>1.20536588031793</clovCoeff>
+              <AnisoParam>
+                <anisoP>false</anisoP>
+                <t_dir>3</t_dir>
+                <xi_0>1</xi_0>
+                <nu>1</nu>
+              </AnisoParam>
+            </CloverParams>
+            <RsdTarget>1.0e-8</RsdTarget>
+            <Delta>1.0e-1</Delta>
+            <Pipeline>4</Pipeline>
+            <MaxIter>500</MaxIter>
+            <RsdToleranceFactor>8.0</RsdToleranceFactor>
+            <AntiPeriodicT>true</AntiPeriodicT>
+            <SolverType>GCR</SolverType>
+            <Verbose>false</Verbose>
+            <AsymmetricLinop>true</AsymmetricLinop>
+            <CudaReconstruct>RECONS_12</CudaReconstruct>
+            <CudaSloppyPrecision>SINGLE</CudaSloppyPrecision>
+            <CudaSloppyReconstruct>RECONS_12</CudaSloppyReconstruct>
+            <AxialGaugeFix>false</AxialGaugeFix>
+            <AutotuneDslash>true</AutotuneDslash>
+            <MULTIGRIDParams>
+              <Verbosity>true</Verbosity>
+              <Precision>HALF</Precision>
+              <Reconstruct>RECONS_12</Reconstruct>
+              <Blocking>
+                <elem>4 4 4 4</elem>
+                <elem>2 2 2 2</elem>
+              </Blocking>
+              <CoarseSolverType>
+                <elem>GCR</elem>
+                <elem>CA_GCR</elem>
+              </CoarseSolverType>
+              <CoarseResidual>0.1 0.1 0.1</CoarseResidual>
+              <MaxCoarseIterations>12 12 8</MaxCoarseIterations>
+              <RelaxationOmegaMG>1.0 1.0 1.0</RelaxationOmegaMG>
+              <SmootherType>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+                <elem>CA_GCR</elem>
+              </SmootherType>
+              <SmootherTol>0.25 0.25 0.25</SmootherTol>
+              <NullVectors>24 32</NullVectors>
+              <Pre-SmootherApplications>0 0</Pre-SmootherApplications>
+              <Post-SmootherApplications>8 8</Post-SmootherApplications>
+              <SubspaceSolver>
+                <elem>CG</elem>
+                <elem>CG</elem>
+              </SubspaceSolver>
+              <RsdTargetSubspaceCreate>5e-06 5e-06</RsdTargetSubspaceCreate>
+              <MaxIterSubspaceCreate>500 500</MaxIterSubspaceCreate>
+              <MaxIterSubspaceRefresh>500 500</MaxIterSubspaceRefresh>
+              <OuterGCRNKrylov>20</OuterGCRNKrylov>
+              <PrecondGCRNKrylov>10</PrecondGCRNKrylov>
+              <GenerateNullspace>true</GenerateNullspace>
+              <CheckMultigridSetup>false</CheckMultigridSetup>
+              <GenerateAllLevels>true</GenerateAllLevels>
+              <CycleType>MG_RECURSIVE</CycleType>
+              <SchwarzType>ADDITIVE_SCHWARZ</SchwarzType>
+              <RelaxationOmegaOuter>1.0</RelaxationOmegaOuter>
+              <SetupOnGPU>1 1</SetupOnGPU>
+            </MULTIGRIDParams>
+            <SubspaceID>mg_subspace</SubspaceID>
+            <ThresholdCount>500</ThresholdCount>
+            <SolutionCheckP>true</SolutionCheckP>
+          </InvertParam>
+
+
+      </Param>
+
+      <NamedObject>
+        <gauge_id>stout1_gauge_field</gauge_id>
+        <source_id>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</source_id>
+        <prop_id>seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>NUCL_D_MIXED_NONREL_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+   <elem>
+      <annotation>
+        3pt contraction 
+      </annotation>
+      <Name>BUILDING_BLOCKS</Name>
+      <Frequency>1</Frequency>
+      <Param>
+       <version>6</version>
+       <use_sink_offset>false</use_sink_offset>
+       <mom2_max>10</mom2_max>
+       <links_max>1</links_max>
+       <canonical>false</canonical>
+       <time_reverse>false</time_reverse>
+       <translate>false</translate>
+       <CoalescedOutput>true</CoalescedOutput>
+       <FermState>
+         <Name>SIMPLE_FERM_STATE</Name>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+       </FermState>
+       <Multi_Srcs>
+         <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+         <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+         <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+         <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+       </Multi_Srcs>
+      </Param>
+
+      <BuildingBlocks>
+       <OutFileName>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p0_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.out</OutFileName>
+       <GaugeId>stout1_gauge_field</GaugeId>
+       <FrwdPropId>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</FrwdPropId>
+       <BkwdProps>
+         <elem>
+           <BkwdPropId>seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</BkwdPropId>
+           <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+           <GammaInsertion>0</GammaInsertion>
+           <Flavor>D</Flavor>
+           <BBFileNamePattern>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p0_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.bb</BBFileNamePattern>
+         </elem>
+       </BkwdProps>
+      </BuildingBlocks>
+      <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p0_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.xml</xml_file>
+    </elem>
+
+
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</object_id>
+      </NamedObject>
+    </elem>
+ 
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</object_id>
+      </NamedObject>
+    </elem>
+
+    
+
+<!-- /////////////////////////////////// -->
+<!--   Wilson flow  -->
+<!-- /////////////////////////////////// -->
+<elem>
+  <Name>WILSON_FLOW_PROPS</Name>
+  <Frequency>1</Frequency>
+  <Param>
+  <version>1</version>
+  <wtime>0.1</wtime>
+  <weps>0.01</weps>
+  <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+  <FermState>
+  <Name>SIMPLE_FERM_STATE</Name>
+  <FermionBC>
+  <FermBC>SIMPLE_FERMBC</FermBC>
+  <boundary>1 1 1 -1</boundary>
+  </FermionBC>
+  </FermState>
+  </Param>
+
+  <NamedObject>
+  <gauge_id>default_gauge_field</gauge_id>
+  <flowed_gauge_id>FLOWED_0p1_default_gauge_field</flowed_gauge_id>
+  <prop_ids>
+  <elem>prop_-0.2390_t28x33y36z28_HP</elem>
+  <elem>prop_-0.2390_t60x45y36z28_HP</elem>
+  <elem>prop_-0.2390_t92x33y36z28_HP</elem>
+  <elem>prop_-0.2390_t124x45y36z28_HP</elem>   
+  </prop_ids>
+  <flowed_prop_ids>
+  <elem>FLOWED_0p1_prop_-0.2390_t28x33y36z28_HP</elem>
+  <elem>FLOWED_0p1_prop_-0.2390_t60x45y36z28_HP</elem>
+  <elem>FLOWED_0p1_prop_-0.2390_t92x33y36z28_HP</elem>
+  <elem>FLOWED_0p1_prop_-0.2390_t124x45y36z28_HP</elem> 
+  </flowed_prop_ids>
+     <seqprop_ids>
+     <elem>seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+     <elem>seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+   </seqprop_ids>
+   <flowed_seqprop_ids>
+     <elem>FLOWED_0p1_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+     <elem>FLOWED_0p1_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+   </flowed_seqprop_ids>
+  </NamedObject>
+</elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>prop_-0.2390_t28x33y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>prop_-0.2390_t60x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+ 
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>prop_-0.2390_t92x33y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>prop_-0.2390_t124x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+
+
+
+<!-- /////////////////////////////////// -->
+<!--   SINK SMEARING - FOR FORWARD PROP  -->
+<!-- /////////////////////////////////// -->
+
+
+ <elem>
+   <Name>LINK_SMEAR</Name>
+   <Frequency>1</Frequency>
+   <Param>
+     <version>3</version>
+      <LinkSmearingType>STOUT_SMEAR</LinkSmearingType>
+      <link_smear_fact>0.125</link_smear_fact>
+      <link_smear_num>1</link_smear_num>
+      <smear_dirs>1 1 1 1</smear_dirs>
+    </Param>
+    <NamedObject>
+     <gauge_id>FLOWED_0p1_default_gauge_field</gauge_id>
+     <linksmear_id>FLOWED_0p1_stout1_gauge_field</linksmear_id>
+    </NamedObject>
+ </elem>
+
+ <elem>
+   <Name>LINK_SMEAR</Name>
+   <Frequency>1</Frequency>
+   <Param>
+     <version>2</version>
+      <LinkSmearingType>STOUT_SMEAR</LinkSmearingType>
+      <link_smear_fact>0.08</link_smear_fact>
+      <link_smear_num>20</link_smear_num>
+      <no_smear_dir>3</no_smear_dir>
+    </Param>
+    <NamedObject>
+     <gauge_id>FLOWED_0p1_default_gauge_field</gauge_id>
+     <linksmear_id>FLOWED_0p1_stout20_gauge_field</linksmear_id>
+    </NamedObject>
+ </elem>
+
+
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 59</tA>
+        <factorA>1.0</factorA>
+        <propA>FLOWED_0p1_prop_-0.2390_t28x33y36z28_HP</propA>
+        <tB>60 91</tB>
+        <factorB>1.0</factorB>
+        <propB>FLOWED_0p1_prop_-0.2390_t60x45y36z28_HP</propB>
+        <propApB>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 91</tA>
+        <factorA>1.0</factorA>
+        <propA>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</propA>
+        <tB>92 123</tB>
+        <factorB>1.0</factorB>
+        <propB>FLOWED_0p1_prop_-0.2390_t92x33y36z28_HP</propB>
+        <propApB>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 123</tA>
+        <factorA>1.0</factorA>
+        <propA>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</propA>
+        <tB>124 27</tB>
+        <factorB>1.0</factorB>
+        <propB>FLOWED_0p1_prop_-0.2390_t124x45y36z28_HP</propB>
+        <propApB>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>SHELL_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>7.0</wvf_param>
+            <wvfIntPar>91</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>FLOWED_0p1_stout20_gauge_field</gauge_id>
+        <prop_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</prop_id>
+        <smeared_prop_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>FLOWED_0p1_stout20_gauge_field</gauge_id>
+        <prop_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</prop_id>
+        <smeared_prop_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+
+<!-- //////////////////////////////// -->
+<!--             HADSPEC              -->
+<!-- //////////////////////////////// -->
+
+    <elem>
+      <annotation>
+         Compute the hadron spectrum.
+      </annotation>
+      <Name>HADRON_SPECTRUM</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+        <MesonP>true</MesonP>
+        <CurrentP>true</CurrentP>
+        <BaryonP>true</BaryonP>
+        <ExtVCurrentP>true</ExtVCurrentP>
+        <ExtACurrentP>true</ExtACurrentP>
+        <time_rev>false</time_rev>
+        <mom2_max>10</mom2_max>
+        <avg_equiv_mom>true</avg_equiv_mom>
+        <Multi_Srcs>
+          <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+          <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+          <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+          <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+        </Multi_Srcs>
+       </Param>
+      <NamedObject>
+        <gauge_id>FLOWED_0p1_stout1_gauge_field</gauge_id>
+      <sink_pairs>
+            <elem>
+                <first_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</first_id>
+                <second_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</second_id>
+            </elem>
+            <elem>
+                <first_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</first_id>
+                <second_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</second_id>
+            </elem>
+        </sink_pairs>
+      </NamedObject>
+       <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p1_hadspec_Pavg_cl21_48_128_b6p3_m0p2390_m0p2050.0_18448_t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP.dat.xml</xml_file>
+    </elem>
+
+
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</object_id>
+      </NamedObject>
+    </elem>
+
+
+<!-- ////////////////////////////// -->
+<!--    3pt - Time Separation 18    -->
+<!-- ////////////////////////////// -->
+
+
+   <elem>
+      <annotation>
+        3pt contraction 
+      </annotation>
+      <Name>BUILDING_BLOCKS</Name>
+      <Frequency>1</Frequency>
+      <Param>
+       <version>6</version>
+       <use_sink_offset>false</use_sink_offset>
+       <mom2_max>10</mom2_max>
+       <links_max>1</links_max>
+       <canonical>false</canonical>
+       <time_reverse>false</time_reverse>
+       <translate>false</translate>
+       <CoalescedOutput>true</CoalescedOutput>
+       <FermState>
+         <Name>SIMPLE_FERM_STATE</Name>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+       </FermState>
+       <Multi_Srcs>
+         <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+         <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+         <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+         <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+       </Multi_Srcs>
+      </Param>
+
+      <BuildingBlocks>
+       <OutFileName>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p1_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.out</OutFileName>
+       <GaugeId>FLOWED_0p1_stout1_gauge_field</GaugeId>
+       <FrwdPropId>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</FrwdPropId>
+       <BkwdProps>
+         <elem>
+           <BkwdPropId>FLOWED_0p1_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</BkwdPropId>
+           <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+           <GammaInsertion>0</GammaInsertion>
+           <Flavor>U</Flavor>
+           <BBFileNamePattern>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p1_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.bb</BBFileNamePattern>
+         </elem>
+       </BkwdProps>
+      </BuildingBlocks>
+      <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p1_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.xml</xml_file>
+    </elem>
+
+
+
+   <elem>
+      <annotation>
+        3pt contraction 
+      </annotation>
+      <Name>BUILDING_BLOCKS</Name>
+      <Frequency>1</Frequency>
+      <Param>
+       <version>6</version>
+       <use_sink_offset>false</use_sink_offset>
+       <mom2_max>10</mom2_max>
+       <links_max>1</links_max>
+       <canonical>false</canonical>
+       <time_reverse>false</time_reverse>
+       <translate>false</translate>
+       <CoalescedOutput>true</CoalescedOutput>
+       <FermState>
+         <Name>SIMPLE_FERM_STATE</Name>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+       </FermState>
+       <Multi_Srcs>
+         <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+         <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+         <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+         <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+       </Multi_Srcs>
+      </Param>
+
+      <BuildingBlocks>
+       <OutFileName>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p1_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.out</OutFileName>
+       <GaugeId>FLOWED_0p1_stout1_gauge_field</GaugeId>
+       <FrwdPropId>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</FrwdPropId>
+       <BkwdProps>
+         <elem>
+           <BkwdPropId>FLOWED_0p1_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</BkwdPropId>
+           <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+           <GammaInsertion>0</GammaInsertion>
+           <Flavor>D</Flavor>
+           <BBFileNamePattern>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p1_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.bb</BBFileNamePattern>
+         </elem>
+       </BkwdProps>
+      </BuildingBlocks>
+      <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p1_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.xml</xml_file>
+    </elem>
+
+
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</object_id>
+      </NamedObject>
+    </elem>
+ 
+
+
+
+    
+
+<!-- /////////////////////////////////// -->
+<!--   Wilson flow  -->
+<!-- /////////////////////////////////// -->
+<elem>
+  <Name>WILSON_FLOW_PROPS</Name>
+  <Frequency>1</Frequency>
+  <Param>
+  <version>1</version>
+  <wtime>0.2</wtime>
+  <weps>0.01</weps>
+  <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+  <FermState>
+  <Name>SIMPLE_FERM_STATE</Name>
+  <FermionBC>
+  <FermBC>SIMPLE_FERMBC</FermBC>
+  <boundary>1 1 1 -1</boundary>
+  </FermionBC>
+  </FermState>
+  </Param>
+
+  <NamedObject>
+  <gauge_id>FLOWED_0p1_default_gauge_field</gauge_id>
+  <flowed_gauge_id>FLOWED_0p3_default_gauge_field</flowed_gauge_id>
+  <prop_ids>
+  <elem>FLOWED_0p1_prop_-0.2390_t28x33y36z28_HP</elem>
+  <elem>FLOWED_0p1_prop_-0.2390_t60x45y36z28_HP</elem>
+  <elem>FLOWED_0p1_prop_-0.2390_t92x33y36z28_HP</elem>
+  <elem>FLOWED_0p1_prop_-0.2390_t124x45y36z28_HP</elem>   
+  </prop_ids>
+  <flowed_prop_ids>
+  <elem>FLOWED_0p3_prop_-0.2390_t28x33y36z28_HP</elem>
+  <elem>FLOWED_0p3_prop_-0.2390_t60x45y36z28_HP</elem>
+  <elem>FLOWED_0p3_prop_-0.2390_t92x33y36z28_HP</elem>
+  <elem>FLOWED_0p3_prop_-0.2390_t124x45y36z28_HP</elem> 
+  </flowed_prop_ids>
+     <seqprop_ids>
+     <elem>FLOWED_0p1_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+     <elem>FLOWED_0p1_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+   </seqprop_ids>
+   <flowed_seqprop_ids>
+     <elem>FLOWED_0p3_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+     <elem>FLOWED_0p3_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+   </flowed_seqprop_ids>
+  </NamedObject>
+</elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>FLOWED_0p1_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>FLOWED_0p1_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p1_prop_-0.2390_t28x33y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p1_prop_-0.2390_t60x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+ 
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p1_prop_-0.2390_t92x33y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p1_prop_-0.2390_t124x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+
+
+
+<!-- /////////////////////////////////// -->
+<!--   SINK SMEARING - FOR FORWARD PROP  -->
+<!-- /////////////////////////////////// -->
+
+
+ <elem>
+   <Name>LINK_SMEAR</Name>
+   <Frequency>1</Frequency>
+   <Param>
+     <version>3</version>
+      <LinkSmearingType>STOUT_SMEAR</LinkSmearingType>
+      <link_smear_fact>0.125</link_smear_fact>
+      <link_smear_num>1</link_smear_num>
+      <smear_dirs>1 1 1 1</smear_dirs>
+    </Param>
+    <NamedObject>
+     <gauge_id>FLOWED_0p3_default_gauge_field</gauge_id>
+     <linksmear_id>FLOWED_0p3_stout1_gauge_field</linksmear_id>
+    </NamedObject>
+ </elem>
+
+ <elem>
+   <Name>LINK_SMEAR</Name>
+   <Frequency>1</Frequency>
+   <Param>
+     <version>2</version>
+      <LinkSmearingType>STOUT_SMEAR</LinkSmearingType>
+      <link_smear_fact>0.08</link_smear_fact>
+      <link_smear_num>20</link_smear_num>
+      <no_smear_dir>3</no_smear_dir>
+    </Param>
+    <NamedObject>
+     <gauge_id>FLOWED_0p3_default_gauge_field</gauge_id>
+     <linksmear_id>FLOWED_0p3_stout20_gauge_field</linksmear_id>
+    </NamedObject>
+ </elem>
+
+
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 59</tA>
+        <factorA>1.0</factorA>
+        <propA>FLOWED_0p3_prop_-0.2390_t28x33y36z28_HP</propA>
+        <tB>60 91</tB>
+        <factorB>1.0</factorB>
+        <propB>FLOWED_0p3_prop_-0.2390_t60x45y36z28_HP</propB>
+        <propApB>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 91</tA>
+        <factorA>1.0</factorA>
+        <propA>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</propA>
+        <tB>92 123</tB>
+        <factorB>1.0</factorB>
+        <propB>FLOWED_0p3_prop_-0.2390_t92x33y36z28_HP</propB>
+        <propApB>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 123</tA>
+        <factorA>1.0</factorA>
+        <propA>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</propA>
+        <tB>124 27</tB>
+        <factorB>1.0</factorB>
+        <propB>FLOWED_0p3_prop_-0.2390_t124x45y36z28_HP</propB>
+        <propApB>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>SHELL_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>7.0</wvf_param>
+            <wvfIntPar>91</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>FLOWED_0p3_stout20_gauge_field</gauge_id>
+        <prop_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</prop_id>
+        <smeared_prop_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>FLOWED_0p3_stout20_gauge_field</gauge_id>
+        <prop_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</prop_id>
+        <smeared_prop_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+
+<!-- //////////////////////////////// -->
+<!--             HADSPEC              -->
+<!-- //////////////////////////////// -->
+
+    <elem>
+      <annotation>
+         Compute the hadron spectrum.
+      </annotation>
+      <Name>HADRON_SPECTRUM</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+        <MesonP>true</MesonP>
+        <CurrentP>true</CurrentP>
+        <BaryonP>true</BaryonP>
+        <ExtVCurrentP>true</ExtVCurrentP>
+        <ExtACurrentP>true</ExtACurrentP>
+        <time_rev>false</time_rev>
+        <mom2_max>10</mom2_max>
+        <avg_equiv_mom>true</avg_equiv_mom>
+        <Multi_Srcs>
+          <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+          <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+          <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+          <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+        </Multi_Srcs>
+       </Param>
+      <NamedObject>
+        <gauge_id>FLOWED_0p3_stout1_gauge_field</gauge_id>
+      <sink_pairs>
+            <elem>
+                <first_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</first_id>
+                <second_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</second_id>
+            </elem>
+            <elem>
+                <first_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</first_id>
+                <second_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</second_id>
+            </elem>
+        </sink_pairs>
+      </NamedObject>
+       <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p3_hadspec_Pavg_cl21_48_128_b6p3_m0p2390_m0p2050.0_18448_t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP.dat.xml</xml_file>
+    </elem>
+
+
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</object_id>
+      </NamedObject>
+    </elem>
+
+
+<!-- ////////////////////////////// -->
+<!--    3pt - Time Separation 18    -->
+<!-- ////////////////////////////// -->
+
+
+   <elem>
+      <annotation>
+        3pt contraction 
+      </annotation>
+      <Name>BUILDING_BLOCKS</Name>
+      <Frequency>1</Frequency>
+      <Param>
+       <version>6</version>
+       <use_sink_offset>false</use_sink_offset>
+       <mom2_max>10</mom2_max>
+       <links_max>1</links_max>
+       <canonical>false</canonical>
+       <time_reverse>false</time_reverse>
+       <translate>false</translate>
+       <CoalescedOutput>true</CoalescedOutput>
+       <FermState>
+         <Name>SIMPLE_FERM_STATE</Name>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+       </FermState>
+       <Multi_Srcs>
+         <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+         <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+         <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+         <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+       </Multi_Srcs>
+      </Param>
+
+      <BuildingBlocks>
+       <OutFileName>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p3_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.out</OutFileName>
+       <GaugeId>FLOWED_0p3_stout1_gauge_field</GaugeId>
+       <FrwdPropId>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</FrwdPropId>
+       <BkwdProps>
+         <elem>
+           <BkwdPropId>FLOWED_0p3_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</BkwdPropId>
+           <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+           <GammaInsertion>0</GammaInsertion>
+           <Flavor>U</Flavor>
+           <BBFileNamePattern>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p3_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.bb</BBFileNamePattern>
+         </elem>
+       </BkwdProps>
+      </BuildingBlocks>
+      <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p3_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.xml</xml_file>
+    </elem>
+
+
+
+   <elem>
+      <annotation>
+        3pt contraction 
+      </annotation>
+      <Name>BUILDING_BLOCKS</Name>
+      <Frequency>1</Frequency>
+      <Param>
+       <version>6</version>
+       <use_sink_offset>false</use_sink_offset>
+       <mom2_max>10</mom2_max>
+       <links_max>1</links_max>
+       <canonical>false</canonical>
+       <time_reverse>false</time_reverse>
+       <translate>false</translate>
+       <CoalescedOutput>true</CoalescedOutput>
+       <FermState>
+         <Name>SIMPLE_FERM_STATE</Name>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+       </FermState>
+       <Multi_Srcs>
+         <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+         <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+         <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+         <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+       </Multi_Srcs>
+      </Param>
+
+      <BuildingBlocks>
+       <OutFileName>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p3_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.out</OutFileName>
+       <GaugeId>FLOWED_0p3_stout1_gauge_field</GaugeId>
+       <FrwdPropId>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</FrwdPropId>
+       <BkwdProps>
+         <elem>
+           <BkwdPropId>FLOWED_0p3_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</BkwdPropId>
+           <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+           <GammaInsertion>0</GammaInsertion>
+           <Flavor>D</Flavor>
+           <BBFileNamePattern>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p3_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.bb</BBFileNamePattern>
+         </elem>
+       </BkwdProps>
+      </BuildingBlocks>
+      <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p3_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.xml</xml_file>
+    </elem>
+
+
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</object_id>
+      </NamedObject>
+    </elem>
+ 
+
+
+
+
+
+
+    
+
+<!-- /////////////////////////////////// -->
+<!--   Wilson flow  -->
+<!-- /////////////////////////////////// -->
+<elem>
+  <Name>WILSON_FLOW_PROPS</Name>
+  <Frequency>1</Frequency>
+  <Param>
+  <version>1</version>
+  <wtime>0.3</wtime>
+  <weps>0.01</weps>
+  <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+  <FermState>
+  <Name>SIMPLE_FERM_STATE</Name>
+  <FermionBC>
+  <FermBC>SIMPLE_FERMBC</FermBC>
+  <boundary>1 1 1 -1</boundary>
+  </FermionBC>
+  </FermState>
+  </Param>
+
+  <NamedObject>
+  <gauge_id>FLOWED_0p3_default_gauge_field</gauge_id>
+  <flowed_gauge_id>FLOWED_0p6_default_gauge_field</flowed_gauge_id>
+  <prop_ids>
+  <elem>FLOWED_0p3_prop_-0.2390_t28x33y36z28_HP</elem>
+  <elem>FLOWED_0p3_prop_-0.2390_t60x45y36z28_HP</elem>
+  <elem>FLOWED_0p3_prop_-0.2390_t92x33y36z28_HP</elem>
+  <elem>FLOWED_0p3_prop_-0.2390_t124x45y36z28_HP</elem>   
+  </prop_ids>
+  <flowed_prop_ids>
+  <elem>FLOWED_0p6_prop_-0.2390_t28x33y36z28_HP</elem>
+  <elem>FLOWED_0p6_prop_-0.2390_t60x45y36z28_HP</elem>
+  <elem>FLOWED_0p6_prop_-0.2390_t92x33y36z28_HP</elem>
+  <elem>FLOWED_0p6_prop_-0.2390_t124x45y36z28_HP</elem> 
+  </flowed_prop_ids>
+     <seqprop_ids>
+     <elem>FLOWED_0p3_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+     <elem>FLOWED_0p3_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+   </seqprop_ids>
+   <flowed_seqprop_ids>
+     <elem>FLOWED_0p6_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+     <elem>FLOWED_0p6_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</elem>
+   </flowed_seqprop_ids>
+  </NamedObject>
+</elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>FLOWED_0p3_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>FLOWED_0p3_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p3_prop_-0.2390_t28x33y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p3_prop_-0.2390_t60x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+ 
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p3_prop_-0.2390_t92x33y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p3_prop_-0.2390_t124x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+
+
+
+<!-- /////////////////////////////////// -->
+<!--   SINK SMEARING - FOR FORWARD PROP  -->
+<!-- /////////////////////////////////// -->
+
+
+ <elem>
+   <Name>LINK_SMEAR</Name>
+   <Frequency>1</Frequency>
+   <Param>
+     <version>3</version>
+      <LinkSmearingType>STOUT_SMEAR</LinkSmearingType>
+      <link_smear_fact>0.125</link_smear_fact>
+      <link_smear_num>1</link_smear_num>
+      <smear_dirs>1 1 1 1</smear_dirs>
+    </Param>
+    <NamedObject>
+     <gauge_id>FLOWED_0p6_default_gauge_field</gauge_id>
+     <linksmear_id>FLOWED_0p6_stout1_gauge_field</linksmear_id>
+    </NamedObject>
+ </elem>
+
+ <elem>
+   <Name>LINK_SMEAR</Name>
+   <Frequency>1</Frequency>
+   <Param>
+     <version>2</version>
+      <LinkSmearingType>STOUT_SMEAR</LinkSmearingType>
+      <link_smear_fact>0.08</link_smear_fact>
+      <link_smear_num>20</link_smear_num>
+      <no_smear_dir>3</no_smear_dir>
+    </Param>
+    <NamedObject>
+     <gauge_id>FLOWED_0p6_default_gauge_field</gauge_id>
+     <linksmear_id>FLOWED_0p6_stout20_gauge_field</linksmear_id>
+    </NamedObject>
+ </elem>
+
+
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 59</tA>
+        <factorA>1.0</factorA>
+        <propA>FLOWED_0p6_prop_-0.2390_t28x33y36z28_HP</propA>
+        <tB>60 91</tB>
+        <factorB>1.0</factorB>
+        <propB>FLOWED_0p6_prop_-0.2390_t60x45y36z28_HP</propB>
+        <propApB>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 91</tA>
+        <factorA>1.0</factorA>
+        <propA>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</propA>
+        <tB>92 123</tB>
+        <factorB>1.0</factorB>
+        <propB>FLOWED_0p6_prop_-0.2390_t92x33y36z28_HP</propB>
+        <propApB>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>QPROPADD</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <j_decay>3</j_decay>
+        <tA>28 123</tA>
+        <factorA>1.0</factorA>
+        <propA>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</propA>
+        <tB>124 27</tB>
+        <factorB>1.0</factorB>
+        <propB>FLOWED_0p6_prop_-0.2390_t124x45y36z28_HP</propB>
+        <propApB>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</propApB>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>SHELL_SINK</SinkType>
+          <j_decay>3</j_decay>
+
+          <SmearingParam>
+            <wvf_kind>GAUGE_INV_GAUSSIAN</wvf_kind>
+            <wvf_param>7.0</wvf_param>
+            <wvfIntPar>91</wvfIntPar>
+            <no_smear_dir>3</no_smear_dir>
+          </SmearingParam>
+
+          <Displacement>
+            <version>1</version>
+            <DisplacementType>NONE</DisplacementType>
+          </Displacement>
+
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>FLOWED_0p6_stout20_gauge_field</gauge_id>
+        <prop_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</prop_id>
+        <smeared_prop_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>1</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>FLOWED_0p6_stout20_gauge_field</gauge_id>
+        <prop_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</prop_id>
+        <smeared_prop_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+
+<!-- //////////////////////////////// -->
+<!--             HADSPEC              -->
+<!-- //////////////////////////////// -->
+
+    <elem>
+      <annotation>
+         Compute the hadron spectrum.
+      </annotation>
+      <Name>HADRON_SPECTRUM</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+        <MesonP>true</MesonP>
+        <CurrentP>true</CurrentP>
+        <BaryonP>true</BaryonP>
+        <ExtVCurrentP>true</ExtVCurrentP>
+        <ExtACurrentP>true</ExtACurrentP>
+        <time_rev>false</time_rev>
+        <mom2_max>10</mom2_max>
+        <avg_equiv_mom>true</avg_equiv_mom>
+        <Multi_Srcs>
+          <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+          <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+          <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+          <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+        </Multi_Srcs>
+       </Param>
+      <NamedObject>
+        <gauge_id>FLOWED_0p6_stout1_gauge_field</gauge_id>
+      <sink_pairs>
+            <elem>
+                <first_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</first_id>
+                <second_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</second_id>
+            </elem>
+            <elem>
+                <first_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</first_id>
+                <second_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</second_id>
+            </elem>
+        </sink_pairs>
+      </NamedObject>
+       <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p6_hadspec_Pavg_cl21_48_128_b6p3_m0p2390_m0p2050.0_18448_t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP.dat.xml</xml_file>
+    </elem>
+
+
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_sp</object_id>
+      </NamedObject>
+    </elem>
+
+
+<!-- ////////////////////////////// -->
+<!--    3pt - Time Separation 18    -->
+<!-- ////////////////////////////// -->
+
+
+   <elem>
+      <annotation>
+        3pt contraction 
+      </annotation>
+      <Name>BUILDING_BLOCKS</Name>
+      <Frequency>1</Frequency>
+      <Param>
+       <version>6</version>
+       <use_sink_offset>false</use_sink_offset>
+       <mom2_max>10</mom2_max>
+       <links_max>1</links_max>
+       <canonical>false</canonical>
+       <time_reverse>false</time_reverse>
+       <translate>false</translate>
+       <CoalescedOutput>true</CoalescedOutput>
+       <FermState>
+         <Name>SIMPLE_FERM_STATE</Name>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+       </FermState>
+       <Multi_Srcs>
+         <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+         <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+         <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+         <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+       </Multi_Srcs>
+      </Param>
+
+      <BuildingBlocks>
+       <OutFileName>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p6_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.out</OutFileName>
+       <GaugeId>FLOWED_0p6_stout1_gauge_field</GaugeId>
+       <FrwdPropId>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</FrwdPropId>
+       <BkwdProps>
+         <elem>
+           <BkwdPropId>FLOWED_0p6_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</BkwdPropId>
+           <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+           <GammaInsertion>0</GammaInsertion>
+           <Flavor>U</Flavor>
+           <BBFileNamePattern>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p6_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.bb</BBFileNamePattern>
+         </elem>
+       </BkwdProps>
+      </BuildingBlocks>
+      <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p6_NUCL_U_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.xml</xml_file>
+    </elem>
+
+
+
+   <elem>
+      <annotation>
+        3pt contraction 
+      </annotation>
+      <Name>BUILDING_BLOCKS</Name>
+      <Frequency>1</Frequency>
+      <Param>
+       <version>6</version>
+       <use_sink_offset>false</use_sink_offset>
+       <mom2_max>10</mom2_max>
+       <links_max>1</links_max>
+       <canonical>false</canonical>
+       <time_reverse>false</time_reverse>
+       <translate>false</translate>
+       <CoalescedOutput>true</CoalescedOutput>
+       <FermState>
+         <Name>SIMPLE_FERM_STATE</Name>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+       </FermState>
+       <Multi_Srcs>
+         <elem> <src>33 36 28 28</src> <tA>28</tA> <tB>59</tB> </elem>
+         <elem> <src>45 36 28 60</src> <tA>60</tA> <tB>91</tB> </elem>
+         <elem> <src>33 36 28 92</src> <tA>92</tA> <tB>123</tB> </elem>
+         <elem> <src>45 36 28 124</src> <tA>124</tA> <tB>27</tB> </elem>
+       </Multi_Srcs>
+      </Param>
+
+      <BuildingBlocks>
+       <OutFileName>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p6_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.out</OutFileName>
+       <GaugeId>FLOWED_0p6_stout1_gauge_field</GaugeId>
+       <FrwdPropId>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</FrwdPropId>
+       <BkwdProps>
+         <elem>
+           <BkwdPropId>FLOWED_0p6_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</BkwdPropId>
+           <BkwdPropG5Format>G5_B_G5</BkwdPropG5Format>
+           <GammaInsertion>0</GammaInsertion>
+           <Flavor>D</Flavor>
+           <BBFileNamePattern>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p6_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.bb</BBFileNamePattern>
+         </elem>
+       </BkwdProps>
+      </BuildingBlocks>
+      <xml_file>/pscratch/sd/h/hari_8/nEDM_project_LANL/FLOWED_0p6_NUCL_D_MIXED_NONREL.px0py0pz0.t28x33y36z28_t60x45y36z28_t92x33y36z28_t124x45y36z28_HP_t10.xml</xml_file>
+    </elem>
+
+
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP</object_id>
+      </NamedObject>
+    </elem>
+
+    <elem>
+      <Name>ERASE_NAMED_OBJECT</Name>
+      <Frequency>1</Frequency>
+      <NamedObject>
+        <object_id>FLOWED_0p6_prop_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_ss</object_id>
+      </NamedObject>
+    </elem>
+ 
+
+
+
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>FLOWED_0p6_seqprop_U_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>FLOWED_0p6_seqprop_D_-0.2390_t28x33y36z28+t60x45y36z28+t92x33y36z28+t124x45y36z28_HP_t10_px0py0pz0</object_id>
+        </NamedObject>
+    </elem>
+
+
+    
+  </InlineMeasurements>
+  <nrow>48 48 48 128</nrow>
+  </Param>
+  <Cfg>
+    <cfg_type>SCIDAC</cfg_type>
+    <cfg_file>/pscratch/sd/h/hari_8/cl21_48_128_b6p3_m0p2390_m0p2050_cfg_12000.lime</cfg_file>
+    <parallel_io>true</parallel_io>
+  </Cfg>
+</chroma>
+

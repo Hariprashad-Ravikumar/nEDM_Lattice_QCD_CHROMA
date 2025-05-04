@@ -1,0 +1,10 @@
+
+function U_charge_conjugated(U)
+   local Ucc = {}
+   local mu;
+   for mu = 1,#U do
+      Ucc[mu] = U[mu]:conj()
+   end
+   return Ucc
+end
+

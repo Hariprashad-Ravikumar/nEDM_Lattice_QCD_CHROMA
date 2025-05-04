@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+
+<chroma>
+<annotation>
+;
+; Chroma input file.
+;
+</annotation>
+
+<Param> 
+  <InlineMeasurements>
+
+
+
+    <elem>
+      <annotation>FLOWED_0p0</annotation>
+      <Name>WEINBERG_GGG</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+      </Param>
+
+      <NamedObject>
+       <gauge_id>default_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+ 
+
+    <elem>
+      <Name>LINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+        <LinkSmearingType>WILSON_FLOW_SMEAR</LinkSmearingType>
+        <wtime>8</wtime>
+        <nstep>800</nstep>
+       </Param>
+       <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <linksmear_id>wf_8p0_gauge_field</linksmear_id>
+       </NamedObject>
+    </elem>
+
+
+    <elem>
+      <annotation>FLOWED_0p1</annotation>
+      <Name>WEINBERG_GGG</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+      </Param>
+
+      <NamedObject>
+       <gauge_id>wf_8p0_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>LINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+        <LinkSmearingType>WILSON_FLOW_SMEAR</LinkSmearingType>
+        <wtime>4.5</wtime>
+        <nstep>450</nstep>
+       </Param>
+       <NamedObject>
+        <gauge_id>wf_8p0_gauge_field</gauge_id>
+        <linksmear_id>wf_12p5_gauge_field</linksmear_id>
+       </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>wf_8p0_gauge_field</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+      <annotation>FLOWED_0p3</annotation>
+      <Name>WEINBERG_GGG</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+      </Param>
+
+      <NamedObject>
+       <gauge_id>wf_12p5_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+
+    <elem>
+      <Name>LINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+        <LinkSmearingType>WILSON_FLOW_SMEAR</LinkSmearingType>
+        <wtime>5.5</wtime>
+        <nstep>550</nstep>
+       </Param>
+       <NamedObject>
+        <gauge_id>wf_12p5_gauge_field</gauge_id>
+        <linksmear_id>wf_18p5_gauge_field</linksmear_id>
+       </NamedObject>
+    </elem>
+
+
+    <elem>
+        <Name>ERASE_NAMED_OBJECT</Name>
+        <Frequency>1</Frequency>
+        <NamedObject>
+            <object_id>wf_12p5_gauge_field</object_id>
+        </NamedObject>
+    </elem>
+
+
+    <elem>
+      <annotation>FLOWED_0p3</annotation>
+      <Name>WEINBERG_GGG</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+      </Param>
+
+      <NamedObject>
+       <gauge_id>wf_18p5_gauge_field</gauge_id>
+      </NamedObject>
+    </elem>
+
+
+
+
+
+  </InlineMeasurements>
+  <nrow>48 48 48 128</nrow>
+  </Param>
+  <Cfg>
+    <cfg_type>SCIDAC</cfg_type>
+    <cfg_file>/pscratch/sd/h/hari_8/cl21_48_128_b6p3_m0p2390_m0p2050_cfg_${CFG}.lime</cfg_file>  
+</Cfg>
+</chroma>
+

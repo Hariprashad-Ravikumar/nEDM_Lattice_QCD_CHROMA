@@ -1,0 +1,50 @@
+require "stdlib"
+require "gauge"
+require "qcd"
+require "qcdlib/clover_loops_fn"
+
+local function toAlg(V)
+  local scaledUnit = V.lattice:ColorMatrix(complex(1.0/V:colors(), 0));
+  local X = (V - V:adjoin()) / 2.0;
+  return X - scaledUnit * X:trace();
+end
+
+local function topoQ_part(G, x, y, z, t)
+  local tmp = G[x][y]*G[z][t];
+  return tmp:trace():real();
+end
+
+function Qtimeslice_chiQ(U, L)
+   local volume = 1
+   for i = 0, #L - 1 do
+     volume = volume * L[i]
+   end
+   
+   local G_lat = {};
+   for i = 1, #U do  -- #U = 4
+     G_lat[i] = {};
+   end
+
+   for mu = 1, #U-1  do
+     for nu = 0,mu-1 do
+       local k5 = 0.0;
+       local c1x1 = C_mxn(U, 1, 1, mu, nu);
+       local c2x2 = C_mxn(U, 2, 2, mu, nu);
+       local c3x3 = C_mxn(U, 3, 3, mu, nu);
+       local c1x2 = C_mxn(U, 1, 2, mu, nu);
+       local c1x3 = C_mxn(U, 1, 3, mu, nu);
+       local Gmunu = (19.0/9.0-55.0*k5)*c1x1 + (1.0/36.0-16.0*k5)*c2x2 + (64.0*k5-32.0/45.0)*c1x2 + (1.0/15.0-6.0*k5)*c1x3 + k5*c3x3;
+       local imag_Gmunu = toAlg(Gmunu);
+       G_lat[mu+1][nu+1] = imag_Gmunu;
+       G_lat[nu+1][mu+1] = -imag_Gmunu;
+     end
+   end
+  local Q = (topoQ_part(G_lat, 1, 2, 3, 4)+topoQ_part(G_lat, 1, 4, 2, 3)+topoQ_part(G_lat, 1, 3, 4, 2));
+  Q = (1/(4.0*math.pi*math.pi))*Q;
+
+  local chiQxy = (Q*Q:sum()):sum();
+  local chiQxybyv = chiQxy/volume;
+
+  local Qt = Q:sum(L:MultiSet(L[3], L:pcoord(3)));
+  return {Qtime = Qt, ChiQ = chiQxybyv};
+end

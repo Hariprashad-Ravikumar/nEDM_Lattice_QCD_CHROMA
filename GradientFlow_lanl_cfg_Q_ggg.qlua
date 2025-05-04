@@ -1,0 +1,70 @@
+require "stdlib"
+require "gauge"
+require "qcd"
+require "wilson-flow_new"
+require "ggg"
+
+function open_qdpc_read(L, name)
+  local qdp_r = qcd.qdpc.Reader(L, name)
+  return qdp_r
+end
+
+function load_qdpc_gauge(L, name)
+  local qdp_r, finfo = open_qdpc_read(L, name)
+  local gauge, rinfo = qdp_r:ColorMatrix(4)
+  qdp_r:close()
+  return gauge
+end
+
+
+Nx = 48
+Ny = 48
+Nz = 48
+Nt = 128
+latsize = {Nx,Ny,Nz,Nt}
+network_geom = {4, 4, 4, 3}
+Lattice = qcd.lattice{Nx,Ny,Nz,Nt}
+
+local eps = 0.01 
+-- local flow_time = {0, 0.10, 0.41, 0.92, 1.64, 2.56, 3.68, 5.01, 6.54, 8.28, 10.22} -- flow_time[1] must be 0 !
+local flow_time = {0}
+
+print("start")
+
+cfg = 12000
+cfg_filename = "/pscratch/sd/h/hari_8/cl21_48_128_b6p3_m0p2390_m0p2050_cfg_12000.lime"
+U0 = load_qdpc_gauge(Lattice, cfg_filename)
+
+
+h5_writer = qcd.hdf5.Writer("/pscratch/sd/h/hari_8/nEDM_project_LANL/save_GF_h5/save_ggg_Q_tslice_WF_0t_lanl_cfg__".. tostring(cfg) .. "_.h5")
+local write_options = { transfer = "collective", precision = "double" }
+
+local Vt = U0 
+
+for i, t in ipairs(flow_time) do
+  local path_to_Qt = string.format("/lanl_cfg_%s/Qt/flow_time_%s_fm", cfg, t)
+  local path_to_Qsum = string.format("/lanl_cfg_%s/Qsum/flow_time_%s_fm", cfg, t)
+  local path_to_gggt = string.format("/lanl_cfg_%s/gggt/flow_time_%s_fm", cfg, t)
+  local path_to_gggsum = string.format("/lanl_cfg_%s/gggsum/flow_time_%s_fm", cfg, t)
+
+  if t==0 then
+    local gggQ0 = give_Q_ggg(Vt, Lattice)
+    h5_writer:write(path_to_Qt, gggQ0.Qtime, write_options)
+    h5_writer:write(path_to_Qsum, gggQ0.Qsum, write_options)
+    h5_writer:write(path_to_gggt, gggQ0.gggtime, write_options)
+    h5_writer:write(path_to_gggsum, gggQ0.gggsum, write_options)
+  else
+    local num_steps = math.ceil((flow_time[i]-flow_time[i-1]) / eps) 
+    
+    for step = 1, num_steps do
+       Vt = wilson_flow(Vt, eps)  
+    end
+    local gggQ = give_Q_ggg(Vt, Lattice)
+    h5_writer:write(path_to_Qt, gggQ.Qtime, write_options)
+    h5_writer:write(path_to_Qsum, gggQ.Qsum, write_options)
+    h5_writer:write(path_to_gggt, gggQ.gggtime, write_options)
+    h5_writer:write(path_to_gggsum, gggQ.gggsum, write_options)
+  end
+end
+
+h5_writer:close()

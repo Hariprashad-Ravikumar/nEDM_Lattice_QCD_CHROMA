@@ -1,0 +1,76 @@
+require "stdlib"
+require "gauge"
+require "qcd"
+
+
+function open_qdpc_read(L, name)
+  local qdp_r = qcd.qdpc.Reader(L, name)
+  return qdp_r
+
+end
+
+function load_qdpc_gauge(L, name)
+  local qdp_r, finfo = open_qdpc_read(L, name)
+  local gauge, rinfo = qdp_r:ColorMatrix(4)
+  qdp_r:close()
+  return gauge, finfo, rinfo
+end
+
+function plaquette(U, i, j)
+  local Ui = U[j+1]:shift(i, "from_forward")
+  local Uj = U[i+1]:shift(j, "from_forward")
+  local Pij = (U[i+1] * Ui * Uj:adjoin() * U[j+1]:adjoin()):trace():real()
+
+  return Pij:sum() / (volume)
+end
+
+function run_test(U)
+  printf("plaquett\n")
+  local s = 0
+  local k = 0
+  for i in interval(0, #L-1) do
+    for j in skip(i, interval(0, #L-1)) do
+      local sij = plaquette(U, i, j)
+      printf("  plaq[%d, %d] = %20.10f\n", i, j, sij)
+      s = s + sij
+      k = k + 1
+    end
+  end
+  printf("average plaquette %20.10f\n\n", s / k);
+end
+
+Nx = 48
+Ny = 48
+Nz = 48
+Nt = 128
+latsize = {Nx,Ny,Nz,Nt}
+network_geom = {4, 4, 4, 3}
+L = qcd.lattice{Nx,Ny,Nz,Nt}
+cfg = 12000
+cfg_filename = "/pscratch/sd/h/hari_8/cl21_48_128_b6p3_m0p2390_m0p2050_cfg_12000.lime"
+-- cfg_filename = "/pscratch/sd/e/engel/cfgs/cl21_32_96_b6p1_m0p2850_m0p2450_b_cfg_1776.lime"
+
+volume = 1
+for i = 0, #L - 1 do
+  volume = volume * L[i]
+end
+
+gauge, finfo, rinfo = load_qdpc_gauge(L, cfg_filename)
+
+-- print("rinfo")
+-- print(rinfo)
+-- print("finfo")
+-- print(finfo)
+-- run_test(gauge)
+
+-- local file = io.open("output.txt", "w")
+
+-- file:write("rinfo:\n")
+-- file:write(tostring(rinfo) .. "\n")
+-- file:write("finfo:\n")
+-- file:write(tostring(finfo) .. "\n")
+
+
+run_test(gauge)
+
+-- file:close()

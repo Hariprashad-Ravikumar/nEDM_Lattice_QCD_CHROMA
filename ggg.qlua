@@ -1,0 +1,299 @@
+require "stdlib"
+require "gauge"
+require "qcd"
+require "qcdlib/clover_loops_fn"
+
+
+-- Take traceless antihermitian projection
+-- W' = (1/2) [W - W^dag - (1/Nc) Tr(W - W^dag)]
+
+
+local function toAlg(V)
+  local scaledUnit = V.lattice:ColorMatrix(complex(1.0/V:colors(), 0));
+  local X = (V - V:adjoin()) / 2.0;
+  return X - scaledUnit * X:trace();
+end
+
+local function makeColor2elements(L, value1, row1, col1, value2, row2, col2)
+  local M = qcd.ColorMatrixN(3)
+  for i = 0, 2 do       -- This loop is using 0-based indices
+    for j = 0, 2 do
+      M[{a=i,b=j}] = complex(0, 0)
+    end
+  end
+  M[{a=row1, b=col1}] = value1
+  M[{a=row2, b=col2}] = value2
+  return L:ColorMatrix(M)
+end
+
+local function makeColor3elements(L, value1, row1, col1, value2, row2, col2, value3, row3, col3)
+  local M = qcd.ColorMatrixN(3)
+  for i = 0, 2 do       -- This loop is using 0-based indices
+    for j = 0, 2 do
+      M[{a=i,b=j}] = complex(0, 0)
+    end
+  end
+  M[{a=row1, b=col1}] = value1
+  M[{a=row2, b=col2}] = value2
+  M[{a=row3, b=col3}] = value3
+  return L:ColorMatrix(M)
+end
+
+local function makeColorzeromatrix(L)
+  local M0 = qcd.ColorMatrixN(3)
+  for i = 0, 2 do       -- This loop is using 0-based indices
+    for j = 0, 2 do
+      M0[{a=i,b=j}] = complex(0, 0)
+    end
+  end
+  return L:ColorMatrix(M0)
+end
+
+local function minusImatrix(L)
+  local Mi = qcd.ColorMatrixN(3)
+  for i = 0, 2 do       -- This loop is using 0-based indices
+    for j = 0, 2 do
+      Mi[{a=i,b=j}] = complex(0, 0)
+    end
+  end
+  Mi[{a=0, b=0}] = complex(0, -1)
+  Mi[{a=1, b=1}] = complex(0, -1)
+  Mi[{a=2, b=2}] = complex(0, -1)
+  return L:ColorMatrix(Mi)
+end
+
+local function plusImatrix(L)
+  local Mi = qcd.ColorMatrixN(3)
+  for i = 0, 2 do       -- This loop is using 0-based indices
+    for j = 0, 2 do
+      Mi[{a=i,b=j}] = complex(0, 0)
+    end
+  end
+  Mi[{a=0, b=0}] = complex(0, 1)
+  Mi[{a=1, b=1}] = complex(0, 1)
+  Mi[{a=2, b=2}] = complex(0, 1)
+  return L:ColorMatrix(Mi)
+end
+
+local function show_cmatrix(n,m)
+   printf("------------- matrix %s: (%s)\n", n, tostring(m))
+   for i = 0, 2 do
+      for j = 0, 2 do
+         printf("  [%2d, %2d] = %15.10f %+15.10fI\n", i, j,
+                m[{a=i,b=j}]:real(), m[{a=i,b=j}]:imag())
+      end
+   end
+   printf("matrix %s -------------\n\n", n)
+end
+
+function give_Q_ggg(U, L)
+   
+   local G_lat = {};
+   for i = 1, 4 do  
+     G_lat[i] = {};
+     for j = 1, 4 do
+       G_lat[i][j] = makeColorzeromatrix(L)
+     end
+   end
+   
+   for mu = 1, #U-1  do
+     for nu = 0,mu-1 do
+       local k5 = 0.0;
+       local c1x1 = C_mxn(U, 1, 1, mu, nu);
+       local c2x2 = C_mxn(U, 2, 2, mu, nu);
+       local c3x3 = C_mxn(U, 3, 3, mu, nu);
+       local c1x2 = C_mxn(U, 1, 2, mu, nu);
+       local c1x3 = C_mxn(U, 1, 3, mu, nu);
+       local Gmunu = (19.0/9.0-55.0*k5)*c1x1 + (1.0/36.0-16.0*k5)*c2x2 + (64.0*k5-32.0/45.0)*c1x2 + (1.0/15.0-6.0*k5)*c1x3 + k5*c3x3;
+       local traceless_antiHermitian_Gmunu = toAlg(Gmunu, L);
+       G_lat[mu+1][nu+1] = traceless_antiHermitian_Gmunu * minusImatrix(L);
+       G_lat[nu+1][mu+1] = -traceless_antiHermitian_Gmunu * minusImatrix(L);
+     end
+   end
+   -- SU(3) generator = (1/2) * Gell-Mann matrix
+   local T = {};
+   for ii = 1, 8 do  
+     T[ii] = {};
+   end
+   -- makeColor loops are using 0-based indices
+   T[1] = makeColor2elements(L, complex(0.5, 0), 1, 0, complex(0.5, 0), 0, 1)
+   T[2] = makeColor2elements(L, complex(0, 0.5), 1, 0, complex(0, -0.5), 0, 1)
+   T[3] = makeColor2elements(L, complex(0.5, 0), 0, 0, complex(-0.5, 0), 1, 1)
+   T[4] = makeColor2elements(L, complex(0.5, 0), 0, 2, complex(0.5, 0), 2, 0)
+   T[5] = makeColor2elements(L, complex(0, -0.5), 0, 2, complex(0, 0.5), 2, 0)
+   T[6] = makeColor2elements(L, complex(0.5, 0), 1, 2, complex(0.5, 0), 2, 1)
+   T[7] = makeColor2elements(L, complex(0, -0.5), 1, 2, complex(0, 0.5), 2, 1)
+   T[8] = makeColor3elements(L, complex(0.5/math.sqrt(3) , 0), 0, 0, complex(0.5/math.sqrt(3), 0), 1, 1, complex(-1/math.sqrt(3), 0), 2, 2)
+   
+   -- Calculate G^A = Tr(G T^A)
+   local GA = {}
+   for mu = 1, 4 do
+     GA[mu] = {}
+     for nu = 1, 4 do
+       GA[mu][nu] = {}
+       for A = 1, 8 do
+         GA[mu][nu][A] = (G_lat[mu][nu]*T[A]):trace()*L:Real(2)
+       end
+     end
+   end
+
+   -- Initialize the structure constants table
+   local fABC = {}
+   for A = 0, 7 do
+       fABC[A] = {}
+       for B = 0, 7 do
+           fABC[A][B] = {}
+           for C = 0, 7 do
+               fABC[A][B][C] = 0
+           end
+       end
+   end
+   
+    fABC[0][1][2] =  1;
+    fABC[0][2][1] = -1;
+    fABC[0][3][6] =  0.5;
+    fABC[0][4][5] = -0.5;
+    fABC[0][5][4] =  0.5;
+    fABC[0][6][3] = -0.5;
+    fABC[1][0][2] = -1;
+    fABC[1][2][0] =  1;
+    fABC[1][3][5] =  0.5;
+    fABC[1][4][6] =  0.5;
+    fABC[1][5][3] = -0.5;
+    fABC[1][6][4] = -0.5;
+    fABC[2][0][1] =  1;
+    fABC[2][1][0] = -1;
+    fABC[2][3][4] =  0.5;
+    fABC[2][4][3] = -0.5;
+    fABC[2][5][6] = -0.5;
+    fABC[2][6][5] =  0.5;
+    fABC[3][0][6] = -0.5;
+    fABC[3][1][5] = -0.5;
+    fABC[3][2][4] = -0.5;
+    fABC[3][4][2] =  0.5;
+    fABC[3][4][7] =  math.sqrt(3)/2;
+    fABC[3][5][1] =  0.5;
+    fABC[3][6][0] =  0.5;
+    fABC[3][7][4] = -math.sqrt(3)/2;
+    fABC[4][0][5] =  0.5;
+    fABC[4][1][6] = -0.5;
+    fABC[4][2][3] =  0.5;
+    fABC[4][3][2] = -0.5;
+    fABC[4][3][7] = -math.sqrt(3)/2;
+    fABC[4][5][0] = -0.5;
+    fABC[4][6][1] =  0.5;
+    fABC[4][7][3] =  math.sqrt(3)/2;
+    fABC[5][0][4] = -0.5;
+    fABC[5][1][3] =  0.5;
+    fABC[5][2][6] =  0.5;
+    fABC[5][3][1] = -0.5;
+    fABC[5][4][0] =  0.5;
+    fABC[5][6][2] = -0.5;
+    fABC[5][6][7] =  math.sqrt(3)/2;
+    fABC[5][7][6] = -math.sqrt(3)/2;
+    fABC[6][0][3] =  0.5;
+    fABC[6][1][4] =  0.5;
+    fABC[6][2][5] = -0.5;
+    fABC[6][3][0] = -0.5;
+    fABC[6][4][1] = -0.5;
+    fABC[6][5][2] =  0.5;
+    fABC[6][5][7] = -math.sqrt(3)/2;
+    fABC[6][7][5] =  math.sqrt(3)/2;
+    fABC[7][3][4] =  math.sqrt(3)/2;
+    fABC[7][4][3] = -math.sqrt(3)/2;
+    fABC[7][5][6] =  math.sqrt(3)/2;
+    fABC[7][6][5] = -math.sqrt(3)/2;
+   
+   -- Epsilon tensor
+   local epsilon = {}
+   for i = 0, 3 do
+       epsilon[i] = {}
+       for j = 0, 3 do
+           epsilon[i][j] = {}
+           for k = 0, 3 do
+               epsilon[i][j][k] = {}
+               for l = 0, 3 do
+                   epsilon[i][j][k][l] = 0
+               end
+           end
+       end
+   end
+
+    epsilon[0][1][2][3] =  1;
+    epsilon[0][1][3][2] = -1;
+    epsilon[0][2][1][3] = -1;
+    epsilon[0][2][3][1] =  1;
+    epsilon[0][3][1][2] =  1;
+    epsilon[0][3][2][1] = -1;
+    epsilon[1][0][2][3] = -1;
+    epsilon[1][0][3][2] =  1;
+    epsilon[1][2][0][3] =  1;
+    epsilon[1][2][3][0] = -1;
+    epsilon[1][3][0][2] = -1;
+    epsilon[1][3][2][0] =  1;
+    epsilon[2][0][1][3] =  1;
+    epsilon[2][0][3][1] = -1;
+    epsilon[2][1][0][3] = -1;
+    epsilon[2][1][3][0] =  1;
+    epsilon[2][3][0][1] =  1;
+    epsilon[2][3][1][0] = -1;
+    epsilon[3][0][1][2] = -1;
+    epsilon[3][0][2][1] =  1;
+    epsilon[3][1][0][2] =  1;
+    epsilon[3][1][2][0] = -1;
+    epsilon[3][2][0][1] = -1;
+    epsilon[3][2][1][0] =  1;
+
+   -- ggg = (1/3) f_{ABC} G_{ij}^A \tilde{G}_{jk}^{B} G_{ki}^{C}
+   --     = (1/3) f_{ABC} G_{ij}^A (1/2) epsilon_{jklm} G_{lm}^{B} G_{ki}^{C}
+   --  Note that (1/2) in front of epsilon is taken out by calculating only m > l
+
+   local ggg_tmp = 0
+   for A = 1, 8 do
+       for B = 1, 8 do
+           for C = 1, 8 do
+               for i = 1, 4 do
+                   for j = 1, 4 do
+                       for k = 1, 4 do
+                           for l = 1, 4 do
+                               for m = l+1, 4 do
+                                   if epsilon[j-1][k-1][l-1][m-1] == 0 then
+                                      ggg_tmp = ggg_tmp 
+                                   elseif fABC[A-1][B-1][C-1] == 0 then
+                                      ggg_tmp = ggg_tmp
+                                   else
+                                      ggg_tmp = ggg_tmp + fABC[A-1][B-1][C-1] * epsilon[j-1][k-1][l-1][m-1] * ((GA[i][j][A] * GA[l][m][B]) * GA[k][i][C])
+                                   end
+                               end
+                           end
+                       end
+                   end
+               end
+           end
+       end
+   end
+   ggg_tmp = ggg_tmp * (1.0 / 3.0)
+
+   local Q_tmp = 0
+   for i = 1, 4 do
+     for j = i+1, 4 do
+       for k = 1, 4 do
+         for l = k+1, 4 do
+           if epsilon[i-1][j-1][k-1][l-1] == 0 then
+             Q_tmp = Q_tmp
+           else
+             Q_tmp = Q_tmp + epsilon[i-1][j-1][k-1][l-1] * (G_lat[i][j] * G_lat[k][l]):trace()
+           end
+         end
+       end
+     end
+   end
+   Q_tmp = Q_tmp * (4.0/(32.0*math.pi*math.pi))
+   
+   Q = Q_tmp:sum();
+   Qt = Q_tmp:sum(L:MultiSet(L[3], L:pcoord(3)));
+   ggg = ggg_tmp:sum();
+   gggt = ggg_tmp:sum(L:MultiSet(L[3], L:pcoord(3)));
+   
+   return {Qtime = Qt, Qsum = Q, gggtime = gggt, gggsum = ggg};
+end

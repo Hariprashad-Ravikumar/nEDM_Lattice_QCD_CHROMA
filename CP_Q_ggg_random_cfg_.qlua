@@ -1,0 +1,126 @@
+require "stdlib"
+require "gauge"
+require "qcd"
+require "qcdlib/symmetric-EQ"
+require "ggg"
+require "charge_conjugation_U"
+require "parity_U"
+
+local function open_qdpc_read(L, name)
+  local qdp_r = qcd.qdpc.Reader(L, name)
+  return qdp_r
+end
+
+local function load_qdpc_gauge(L, name)
+  local qdp_r, finfo = open_qdpc_read(L, name)
+  local gauge, rinfo = qdp_r:ColorMatrix(4)
+  qdp_r:close()
+  return gauge
+end
+
+local function plaquette(U, i, j)
+  local Ui = U[j+1]:shift(i, "from_forward")
+  local Uj = U[i+1]:shift(j, "from_forward")
+  local Pij = (U[i+1] * Ui * Uj:adjoin() * U[j+1]:adjoin()):trace():real()
+
+  return Pij:sum() / (volume * 3.0)
+end
+
+local function run_test(U, L, log_file)
+  printf("plaquett\n")
+  local s = 0
+  local k = 0
+  for i in interval(0, #L-1) do
+    for j in skip(i, interval(0, #L-1)) do
+      local sij = plaquette(U, i, j)
+      log_file:write(string.format("  plaq[%d, %d] = %20.10f\n", i, j, sij))
+      s = s + sij
+      k = k + 1
+    end
+  end
+  log_file:write(string.format("average plaquette %20.10f\n\n", s / k))
+end
+
+
+Nx = 4
+Ny = 4
+Nz = 4
+Nt = 8
+
+Lattice = qcd.lattice{Nx,Ny,Nz,Nt}
+
+print("start")
+
+do
+  local r = Lattice:Int(os.random())
+  for i = 0, #Lattice - 1 do
+    r = r * Lattice[i] + Lattice:pcoord(i)
+  end
+  S = Lattice:RandomState(os.random(), r)
+end
+
+function toSUn(L, X)
+  local Y = (X - X:adjoin()) / 2
+  return (Y - Y:trace() / 3.0 * L:ColorMatrix(complex(1,0))):exp()
+end
+
+ function weak_SUn(L, S)
+   return toSUn(L, 0.2 * S:gaussian_ColorMatrix())
+ end
+
+function strong_SUn(L, S)
+  local v = weak_SUn(L, S)
+  for i = 1, 100 do
+    v = v * weak_SUn(L, S)
+  end
+  return v:proj(1e-6, 150)
+end
+
+U = {}
+for i = 0, #Lattice - 1 do
+  U[i+1] = strong_SUn(Lattice, S)
+end
+
+local U0 = gauge_copy(U)
+volume = 1
+for i = 0, #Lattice - 1 do
+  volume = volume * Lattice[i]
+end
+local log_file = io.open("C_P_CP_Q_random_cfg.txt", "w")
+log_file:write("cfg_file = random gauge\n")
+run_test(U0, Lattice, log_file)
+local observ = give_Q_ggg(U0, Lattice)
+log_file:write(string.format("Q = %s\n", tostring(observ.Qsum)))
+log_file:write(string.format("ggg = %s\n", tostring(observ.gggsum)))
+
+print("U[{0,0,0,0}] = ", U0[{0,0,0,0}])
+
+local Uc = gauge_copy(U_charge_conjugated(U0))
+log_file:write(string.format("U_charge_conjugated\n"))
+run_test(Uc, Lattice, log_file)
+local observc = give_Q_ggg(Uc, Lattice)
+log_file:write(string.format("Q = %s\n", tostring(observc.Qsum)))
+log_file:write(string.format("ggg = %s\n", tostring(observc.gggsum)))
+
+print("Uc[{0,0,0,0}] = ", Uc[{0,0,0,0}])
+
+local Up = gauge_copy(U_parity_transform(U0, Lattice))
+log_file:write(string.format("U_parity\n"))
+run_test(Up, Lattice, log_file)
+local observp = give_Q_ggg(Up, Lattice)
+log_file:write(string.format("Q = %s\n", tostring(observp.Qsum)))
+log_file:write(string.format("ggg = %s\n", tostring(observp.gggsum)))
+
+print("Up[{0,0,0,0}] = ", Up[{0,0,0,0}])
+
+local Ucp = gauge_copy(U_charge_conjugated(Up))
+log_file:write(string.format("CP\n"))
+run_test(Ucp, Lattice, log_file)
+local observcp = give_Q_ggg(Ucp, Lattice)
+log_file:write(string.format("Q = %s\n", tostring(observcp.Qsum)))
+log_file:write(string.format("ggg = %s\n", tostring(observcp.gggsum)))
+
+print("Ucp[{0,0,0,0}] = ", Ucp[{0,0,0,0}])
+
+log_file:write("\n done \n")
+log_file:close()

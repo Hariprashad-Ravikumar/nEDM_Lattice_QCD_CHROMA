@@ -1,0 +1,78 @@
+require "stdlib"
+require "gauge"
+require "qcd"
+require "qcdlib/symmetric-EQ"
+require "ggg"
+require "charge_conjugation_U"
+require "parity_U"
+
+function open_qdpc_read(L, name)
+  local qdp_r = qcd.qdpc.Reader(L, name)
+  return qdp_r
+end
+
+function load_qdpc_gauge(L, name)
+  local qdp_r, finfo = open_qdpc_read(L, name)
+  local gauge, rinfo = qdp_r:ColorMatrix(4)
+  qdp_r:close()
+  return gauge
+end
+
+local function plaquette(U, i, j)
+  local Ui = U[j+1]:shift(i, "from_forward")
+  local Uj = U[i+1]:shift(j, "from_forward")
+  local Pij = (U[i+1] * Ui * Uj:adjoin() * U[j+1]:adjoin()):trace():real()
+
+  return Pij:sum() / (volume * 3.0)
+end
+
+local function run_test(U, L, log_file)
+  -- printf("plaquett\n")
+  local s = 0
+  local k = 0
+  for i in interval(0, #L-1) do
+    for j in skip(i, interval(0, #L-1)) do
+      local sij = plaquette(U, i, j)
+      log_file:write(string.format("  plaq[%d, %d] = %20.10f\n", i, j, sij))
+      s = s + sij
+      k = k + 1
+    end
+  end
+  log_file:write(string.format("average plaquette %20.10f\n\n", s / k))
+end
+
+
+Nx = 48
+Ny = 48
+Nz = 48
+Nt = 128
+latsize = {Nx,Ny,Nz,Nt}
+network_geom = {4, 4, 4, 3}
+Lattice = qcd.lattice{Nx,Ny,Nz,Nt}
+
+print("start")
+
+cfg = 12000
+cfg_filename = "/pscratch/sd/h/hari_8/cl21_48_128_b6p3_m0p2390_m0p2050_cfg_12000.lime"
+local U0 = load_qdpc_gauge(Lattice, cfg_filename)
+
+volume = 1
+for i = 0, #Lattice - 1 do
+  volume = volume * Lattice[i]
+end
+
+local log_file = io.open("P_Q_ggg_lanl_cfg_12000.txt", "w")
+log_file:write("cfg_file = cl21_48_128_b6p3_m0p2390_m0p2050_cfg_12000.lime\n")
+
+
+local Up = U_parity(U0, Lattice)
+log_file:write(string.format("U_parity\n"))
+run_test(Up, Lattice, log_file)
+local observp = give_Q_ggg(Up, Lattice)
+log_file:write(string.format("Q = %s\n", tostring(observp.Qsum)))
+log_file:write(string.format("ggg = %s\n", tostring(observp.gggsum)))
+
+
+
+log_file:write("\n done \n")
+log_file:close()

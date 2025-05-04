@@ -1,0 +1,63 @@
+require "stdlib"
+require "gauge"
+require "qcd"
+require "wilson-flow_new"
+require "Qtime_susceptibility"
+
+function open_qdpc_read(L, name)
+  local qdp_r = qcd.qdpc.Reader(L, name)
+  return qdp_r
+end
+
+function load_qdpc_gauge(L, name)
+  local qdp_r, finfo = open_qdpc_read(L, name)
+  local gauge, rinfo = qdp_r:ColorMatrix(4)
+  qdp_r:close()
+  return gauge
+end
+
+
+Nx = 48
+Ny = 48
+Nz = 48
+Nt = 128
+latsize = {Nx,Ny,Nz,Nt}
+network_geom = {4, 4, 4, 3}
+Lattice = qcd.lattice{Nx,Ny,Nz,Nt}
+
+local eps = 0.01 
+local flow_time = {0, 3.68, 5.01, 8.28, 10.22, 15, 20, 30} -- flow_time[1] must be 0 !
+
+print("start")
+
+cfg = 12000
+cfg_filename = "/pscratch/sd/h/hari_8/cl21_48_128_b6p3_m0p2390_m0p2050_cfg_12000.lime"
+U0 = load_qdpc_gauge(Lattice, cfg_filename)
+
+
+h5_writer = qcd.hdf5.Writer("/pscratch/sd/h/hari_8/nEDM_project_LANL/save_GF_h5/save_Qt_ChiQ_WilsonFlow_larget_lanl_cfg_".. tostring(cfg) .. "_.h5")
+local write_options = { transfer = "collective", precision = "double" }
+
+local Vt = U0 
+
+for i, t in ipairs(flow_time) do
+  local path_to_Qtimeslice = string.format("/lanl_cfg_%s/Qtimeslice/flow_time_%s_fm", cfg, t)
+  local path_to_ChiQ = string.format("/lanl_cfg_%s/ChiQ/flow_time_%s_fm", cfg, t)
+
+  if t==0 then
+    local QtChiQ0 = Qtimeslice_chiQ(Vt, Lattice)
+    h5_writer:write(path_to_Qtimeslice, QtChiQ0.Qtime, write_options)
+    h5_writer:write(path_to_ChiQ, QtChiQ0.ChiQ, write_options)
+  else
+    local num_steps = math.ceil((flow_time[i]-flow_time[i-1]) / eps) 
+    
+    for step = 1, num_steps do
+       Vt = wilson_flow(Vt, eps)  
+    end
+    local QtChiQ = Qtimeslice_chiQ(Vt, Lattice)
+    h5_writer:write(path_to_Qtimeslice, QtChiQ.Qtime, write_options)
+    h5_writer:write(path_to_ChiQ, QtChiQ.ChiQ, write_options)
+  end
+end
+
+h5_writer:close()

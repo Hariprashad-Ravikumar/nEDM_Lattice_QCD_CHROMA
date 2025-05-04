@@ -1,0 +1,53 @@
+function U_parity_transform(U, L)
+   local Ucc = gauge_copy(U)
+   -- mu = 1
+   for x = 0, L[0]-1 do
+     for y = 0, L[1]-1 do 
+       for z = 0, L[2]-1 do
+         for t = 0, L[3]-1 do
+           local Umumxmymzt = U[1][{ (L[0] - x - 1) % L[0] , (L[1] - y) % L[1] , (L[2] - z) % L[2] , t}]
+           Ucc[1][{x,y,z,t}] = Umumxmymzt
+         end
+       end
+     end
+   end
+   Ucc[1] = Ucc[1]:adjoin()
+   -- mu = 2
+   for x = 0, L[0]-1 do
+     for y = 0, L[1]-1 do 
+       for z = 0, L[2]-1 do
+         for t = 0, L[3]-1 do
+           local Umumxmymzt = U[2][{ (L[0] - x) % L[0] , (L[1] - y - 1) % L[1] , (L[2] - z) % L[2] , t}]
+           Ucc[2][{x,y,z,t}] = Umumxmymzt
+         end
+       end
+     end
+   end
+   Ucc[2] = Ucc[2]:adjoin()
+   -- mu = 3
+   for x = 0, L[0]-1 do
+     for y = 0, L[1]-1 do 
+       for z = 0, L[2]-1 do
+         for t = 0, L[3]-1 do
+           local Umumxmymzt = U[3][{ (L[0] - x) % L[0] , (L[1] - y) % L[1] , (L[2] - z - 1) % L[2] , t}]
+           Ucc[3][{x,y,z,t}] = Umumxmymzt
+         end
+       end
+     end
+   end
+   Ucc[3] = Ucc[3]:adjoin()
+   -- mu = 4
+   for x = 0, L[0]-1 do
+     for y = 0, L[1]-1 do 
+       for z = 0, L[2]-1 do
+         for t = 0, L[3]-1 do
+           local Umumxmymzt = U[4][{ (L[0] - x) % L[0] , (L[1] - y) % L[1] , (L[2] - z) % L[2] , t}]
+           Ucc[4][{x,y,z,t}] = Umumxmymzt
+         end
+       end
+     end
+   end
+   Ucc[4] = Ucc[4]
+   return Ucc
+end
+

@@ -1,0 +1,93 @@
+require "stdlib"
+require "gauge"
+require "qcd"
+require "qcdlib/symmetric-EQ"
+require "ggg"
+require "charge_conjugation_U"
+require "parity_U"
+
+function open_qdpc_read(L, name)
+  local qdp_r = qcd.qdpc.Reader(L, name)
+  return qdp_r
+end
+
+function load_qdpc_gauge(L, name)
+  local qdp_r, finfo = open_qdpc_read(L, name)
+  local gauge, rinfo = qdp_r:ColorMatrix(4)
+  qdp_r:close()
+  return gauge
+end
+
+function plaquette(U, i, j)
+  local Ui = U[j+1]:shift(i, "from_forward")
+  local Uj = U[i+1]:shift(j, "from_forward")
+  local Pij = (U[i+1] * Ui * Uj:adjoin() * U[j+1]:adjoin()):trace():real()
+
+  return Pij:sum() / (volume * 3.0)
+end
+
+function run_test(U, L, log_file)
+  printf("plaquett\n")
+  local s = 0
+  local k = 0
+  for i in interval(0, #L-1) do
+    for j in skip(i, interval(0, #L-1)) do
+      local sij = plaquette(U, i, j)
+      log_file:write(string.format("  plaq[%d, %d] = %20.10f\n", i, j, sij))
+      s = s + sij
+      k = k + 1
+    end
+  end
+  log_file:write(string.format("average plaquette %20.10f\n\n", s / k))
+end
+
+
+
+print("start")
+Nx = 48
+Ny = 48
+Nz = 48
+Nt = 128
+latsize = {Nx,Ny,Nz,Nt}
+network_geom = {4, 4, 4, 3}
+L = qcd.lattice{Nx,Ny,Nz,Nt}
+
+cfg = 12000
+cfg_filename = "/pscratch/sd/h/hari_8/cl21_48_128_b6p3_m0p2390_m0p2050_cfg_12000.lime"
+U = load_qdpc_gauge(L, cfg_filename)
+
+
+for x = 0, 48-1 do
+  print("x = ", x, "; -x-a = ", (48 - x -1) % 48, "\n")
+end
+
+
+local function U_parity(U, L)
+   local Ucc = {}
+   local dummyU = U
+   local mu
+   for mu = 1,#U do
+     Ucc[mu] = dummyU[mu]
+     for x = 0, L[0]-1 do
+       for y = 0, L[1]-1 do
+         for z = 0, L[2]-1 do
+           for t = 0, L[3]-1 do
+             local Umumxmymzt = U[mu][{ (L[0] - x) % L[0] , (L[1] - y) % L[1] , (L[2] - z) % L[2] , t}]
+             Ucc[mu][{x,y,z,t}] = Umumxmymzt
+           end
+         end
+       end
+     end
+     -- if mu == 4 then
+       -- Ucc[mu] = Ucc[mu]
+     -- else
+       -- Ucc[mu] = Ucc[mu]:shift(mu, "from_backward"):adjoin()
+     -- end
+   end
+   return Ucc
+end
+
+print("U[1][{0,0,0,0}]:trace()", U[1][{0,0,0,0}]:trace())
+local shifU = U[1]:shift(1-1, "from_forward"):conj()
+
+print("shifU[{0,0,0,0}]:trace()", shifU[{47,0,0,0}]:trace())

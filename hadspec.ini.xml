@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<chroma>
+<annotation>Hadron spectrum input file.</annotation>
+<Param> 
+  <InlineMeasurements>
+
+    <annotation>Create the source for the propagator inversion.</annotation>
+    <elem>
+      <Name>MAKE_SOURCE</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>6</version>
+        <Source>
+          <version>2</version>
+          <SourceType>POINT_SOURCE</SourceType>
+          <j_decay>3</j_decay>
+          <t_srce>0 0 0 0</t_srce>
+        </Source>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <source_id>pt_source</source_id>
+      </NamedObject>
+    </elem>
+
+    <annotation>Do the inversion.</annotation>
+    <elem>
+      <Name>PROPAGATOR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>10</version>
+        <quarkSpinType>FULL</quarkSpinType>
+        <obsvP>false</obsvP>
+        <FermionAction>
+         <FermAct>WILSON</FermAct>
+         <Kappa>0.11</Kappa>
+         <AnisoParam>
+           <anisoP>false</anisoP>
+           <t_dir>3</t_dir>
+           <xi_0>1.0</xi_0>
+           <nu>1.0</nu>
+         </AnisoParam>
+         <FermionBC>
+           <FermBC>SIMPLE_FERMBC</FermBC>
+           <boundary>1 1 1 -1</boundary>
+         </FermionBC>
+        </FermionAction>
+        <InvertParam>
+          <invType>CG_INVERTER</invType>
+          <RsdCG>1.0e-8</RsdCG>
+          <MaxCG>1000</MaxCG>
+        </InvertParam>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <source_id>pt_source</source_id>
+        <prop_id>pt_src_prop</prop_id>
+      </NamedObject>
+    </elem>
+
+    <annotation>Smear the propagator at the sink.</annotation>
+    <elem>
+      <Name>SINK_SMEAR</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>5</version>
+        <Sink>
+          <version>2</version>
+          <SinkType>POINT_SINK</SinkType>
+          <j_decay>3</j_decay>
+        </Sink>
+      </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <prop_id>pt_src_prop</prop_id>
+        <smeared_prop_id>pt_src_pt_sink_prop</smeared_prop_id>
+      </NamedObject>
+    </elem>
+
+
+    <annotation>Compute the hadron spectrum.</annotation>
+    <elem>
+      <Name>HADRON_SPECTRUM</Name>
+      <Frequency>1</Frequency>
+      <Param>
+        <version>1</version>
+        <MesonP>true</MesonP>
+        <CurrentP>true</CurrentP>
+        <BaryonP>true</BaryonP>
+        <time_rev>false</time_rev>
+        <mom2_max>3</mom2_max>
+        <avg_equiv_mom>true</avg_equiv_mom>
+       </Param>
+      <NamedObject>
+        <gauge_id>default_gauge_field</gauge_id>
+        <sink_pairs>
+          <elem>
+            <first_id>pt_src_pt_sink_prop</first_id>
+            <second_id>pt_src_pt_sink_prop</second_id>
+          </elem>
+        </sink_pairs>
+      </NamedObject>
+      <xml_file>hadspec.dat.xml</xml_file>
+    </elem>
+
+  </InlineMeasurements>
+  <annotation>Lattice dimensions.</annotation>
+  <nrow>4 4 4 8</nrow>
+</Param>
+<annotation>Configuration file information.</annotation>
+<Cfg>
+ <cfg_type>WEAK_FIELD</cfg_type>
+ <cfg_file>dummy</cfg_file>
+</Cfg>
+</chroma>
+
+

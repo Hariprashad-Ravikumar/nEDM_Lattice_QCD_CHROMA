@@ -1,0 +1,45 @@
+-- Wilson flow 
+
+function wilson_flow(Vt, eps)
+   local function P(M, L)
+      local Y = (M - M:adjoin()) / 2
+      return (Y - Y:trace() / 3.0 *L:ColorMatrix(complex(1,0)))
+   end
+   local function Z(U, mu)
+      local Nc = U[1]:colors();
+      local L = U[1].lattice;
+      local ZU = L:ColorMatrix(complex(0,0));
+      local nu
+      for nu in skip(mu, interval(1,#L)) do
+         local ZUbeforeP = U[mu] * U[nu]:shift(mu-1,"from_forward") * U[mu]:shift(nu-1,"from_forward"):adjoin() * U[nu]:adjoin() 
+                           + U[mu] * U[nu]:shift(mu-1,"from_forward"):shift(nu-1,"from_backward"):adjoin() * U[mu]:shift(nu-1,"from_backward"):adjoin() * U[nu]:shift(nu-1,"from_backward") 
+         ZU = ZU +  P(ZUbeforeP, L)
+      end
+      return (-ZU)  -- -ZU is correct
+   end
+   local Z0 = {};
+   local W1 = {};
+   local Z1 = {};
+   local W2 = {};
+   local Z2 = {};
+   local VtPeps = {};
+   local mu;
+
+   for mu = 1,#Vt do
+      Z0[mu] = eps*Z(Vt, mu);
+      W1[mu] = ((1.0/4.0)*Z0[mu]):exp() * Vt[mu];  -- W0 = Vt = U[mu]
+   end
+   
+   for mu = 1,#Vt do
+      Z1[mu] = eps*Z(W1, mu);
+      W2[mu] = ((8.0/9.0)*Z1[mu] - (17.0/36.0)*Z0[mu]):exp() * W1[mu];
+   end
+
+   for mu = 1,#Vt do
+      Z2[mu] = eps*Z(W2, mu);
+      VtPeps[mu] = ((3.0/4.0)*Z2[mu] - (8.0/9.0)*Z1[mu] + (17.0/36.0)*Z0[mu]):exp() * W2[mu];
+   end
+
+   return VtPeps;
+end
+

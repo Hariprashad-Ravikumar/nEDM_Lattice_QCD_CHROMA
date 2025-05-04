@@ -1,0 +1,95 @@
+require "stdlib"
+require "gauge"
+require "qcd"
+require "qcdlib/symmetric-EQ"
+require "wilson-flow_new_minus"
+
+
+function open_qdpc_read(L, name)
+  local qdp_r = qcd.qdpc.Reader(L, name)
+  return qdp_r
+end
+
+function load_qdpc_gauge(L, name)
+  local qdp_r, finfo = open_qdpc_read(L, name)
+  local gauge, rinfo = qdp_r:ColorMatrix(4)
+  qdp_r:close()
+  return gauge, finfo, rinfo
+end
+
+
+Nx = 32
+Ny = 32
+Nz = 32
+Nt = 96
+latsize = {Nx,Ny,Nz,Nt}
+network_geom = {4, 4, 4, 3}
+local L = qcd.lattice(latsize,{network=network_geom})
+
+a = 0.114
+flow_time = {0, 10, 15, 20, 30, 40, 50, 80, 100, 150, 200, 300, 500, 1000} -- flow_time[1] must be 0 !
+
+h5_writer = qcd.hdf5.Writer("/pscratch/sd/h/hari_8/nEDM_project_LANL/save_GF_h5/save_cfg_b/save_EQ_large_WilsonFlow_cfg_b_".. tostring(cfg) .. "_.h5") 
+
+
+
+
+printf("starting : b_%s\n", tostring(cfg))
+local cfgstream = "b"
+local cfg_filename = "/pscratch/sd/e/engel/cfgs/cl21_32_96_b6p1_m0p2850_m0p2450_" .. cfgstream .. "_cfg_" .. tostring(cfg) .. ".lime"
+local U0, finfo, rinfo = load_qdpc_gauge(L, cfg_filename)
+local write_options = { transfer = "collective", precision = "double" }
+local Vt = U0
+local eps = 0.01
+for i, t in ipairs(flow_time) do
+  if t==0 then
+    local EQ_improved0 = qcdLib.symmetricEQ(Vt, {improved = true})
+    local path_to_E = string.format("/%s_cfg_%s/symmetricE/flow_time_%s_fm", cfgstream, cfg, t)
+    local path_to_Q = string.format("/%s_cfg_%s/symmetricQ/flow_time_%s_fm", cfgstream, cfg, t)
+    local path_to_E_improved = string.format("/%s_cfg_%s/improvedE/flow_time_%s_fm", cfgstream, cfg, t)
+    local path_to_Q_improved = string.format("/%s_cfg_%s/improvedQ/flow_time_%s_fm", cfgstream, cfg, t)
+    h5_writer:write(path_to_E, EQ_improved0.symmetricE, write_options) 
+    h5_writer:write(path_to_Q, EQ_improved0.symmetricQ, write_options)
+    h5_writer:write(path_to_E_improved, EQ_improved0.improvedE, write_options)
+    h5_writer:write(path_to_Q_improved, EQ_improved0.improvedQ, write_options) 
+  else
+    local num_steps = math.ceil((flow_time[i]-flow_time[i-1]) / eps) 
+    
+    for step = 1, num_steps do
+       Vt = wilson_flow(Vt, eps)  
+    end
+    local EQ_improved = qcdLib.symmetricEQ(Vt, {improved = true})
+    local path_to_E = string.format("/%s_cfg_%s/symmetricE/flow_time_%s_fm", cfgstream, cfg, t)
+    local path_to_Q = string.format("/%s_cfg_%s/symmetricQ/flow_time_%s_fm", cfgstream, cfg, t)
+    local path_to_E_improved = string.format("/%s_cfg_%s/improvedE/flow_time_%s_fm", cfgstream, cfg, t)
+    local path_to_Q_improved = string.format("/%s_cfg_%s/improvedQ/flow_time_%s_fm", cfgstream, cfg, t)
+    h5_writer:write(path_to_E, EQ_improved.symmetricE, write_options) 
+    h5_writer:write(path_to_Q, EQ_improved.symmetricQ, write_options)
+    h5_writer:write(path_to_E_improved, EQ_improved.improvedE, write_options)
+    h5_writer:write(path_to_Q_improved, EQ_improved.improvedQ, write_options)
+  end
+ end
+ print("done")
+
+-- for cfg = 1336, 1612, 4 do
+--   printf("starting : a_%s\n", cfg)
+--   local cfgstream = "a"
+--   local cfg_filename = "/pscratch/sd/e/engel/cfgs/cl21_32_96_b6p1_m0p2850_m0p2450_" .. cfgstream .. "_cfg_" .. tostring(cfg) .. ".lime"
+--   local U, finfo, rinfo = load_qdpc_gauge(L, cfg_filename)
+--   for _, tau in ipairs(flow_time) do
+--     local V = wilson_flow(U, tau);
+--     local EQ_improved = qcdLib.symmetricEQ(V, {improved = true});
+--     local path_to_E = string.format("/%s_cfg_%s/symmetricE/flow_time_%s_fm", cfgstream, cfg, tau)
+--     local path_to_Q = string.format("/%s_cfg_%s/symmetricQ/flow_time_%s_fm", cfgstream, cfg, tau)
+--     local path_to_E_improved = string.format("/%s_cfg_%s/improvedE/flow_time_%s_fm", cfgstream, cfg, tau)
+--     local path_to_Q_improved = string.format("/%s_cfg_%s/improvedQ/flow_time_%s_fm", cfgstream, cfg, tau)
+--     local write_options = { transfer = "collective", precision = "double" }
+--     h5_writer:write(path_to_E, EQ_improved.symmetricE, write_options)
+--     h5_writer:write(path_to_Q, EQ_improved.symmetricQ, write_options)
+--     h5_writer:write(path_to_E_improved, EQ_improved.improvedE, write_options)
+--     h5_writer:write(path_to_Q_improved, EQ_improved.improvedQ, write_options)
+--   end
+--   print("done")
+-- end
+
+h5_writer:close()
