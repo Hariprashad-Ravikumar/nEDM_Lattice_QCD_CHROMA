@@ -1,0 +1,244 @@
+require("stdlib")
+
+local function Wline_down(U, m, n, mu, nu)
+    local Wline_d = {} -- for down links of Wilson loop 
+    -- lets build list of Wline_d
+    Wline_d[1] = U[mu + 1]
+    if m > 1 then
+        for i = 2, m do
+            Wline_d[i] = Wline_d[i-1]:shift(mu, "from_forward")
+        end
+    end
+    return Wline_d
+end
+
+local function Wline_left(U, m, n, mu, nu)
+    local Wline_l = {} -- for left links of Wilson loop 
+    -- lets build list of Wline_l
+    Wline_l[1] = U[nu + 1]
+    if n > 1 then
+        for i = 2, n do
+            Wline_l[i] = Wline_l[i-1]:shift(nu, "from_forward")
+        end
+    end
+    return Wline_l
+end
+
+local function Wline_right(U, m, n, mu, nu)
+    local Wline_r = {} -- for right links of Wilson loop 
+    local Wline_d_p1 = U[nu + 1]
+    for sh = 1, m do
+      Wline_d_p1 = Wline_d_p1:shift(mu, "from_forward")
+    end 
+    Wline_r[1] = Wline_d_p1
+    if n > 1 then
+        for i = 2, n do
+            Wline_r[i] = Wline_r[i-1]:shift(nu, "from_forward")
+        end
+    end
+    return Wline_r
+end
+
+local function Wline_top(U, m, n, mu, nu)
+    local Wline_t = {} -- for top links of Wilson loop 
+    local Wline_l_p1 = U[mu + 1]
+    for sh = 1, n do
+      Wline_l_p1 = Wline_l_p1:shift(nu, "from_forward")
+    end 
+    Wline_t[1] = Wline_l_p1
+    if m > 1 then
+        for i = 2, m do
+            Wline_t[i] = Wline_t[i-1]:shift(mu, "from_forward")
+        end
+    end
+    return Wline_t
+end
+
+local function Wilson_loop1(U, m, n, mu, nu)
+    local Wline_d = Wline_down(U, m, n, mu, nu)
+    local Wline_r = Wline_right(U, m, n, mu, nu)
+    local Wline_l = Wline_left(U, m, n, mu, nu)
+    local Wline_t = Wline_top(U, m, n, mu, nu)
+
+    -- attach :adjoin() to all elements of Wline_l
+    for i = 1, #Wline_l do
+        Wline_l[i] = Wline_l[i]:adjoin()
+    end
+
+    -- attach :adjoin() to all elements of Wline_t
+    for j = 1, #Wline_t do
+        Wline_t[j] = Wline_t[j]:adjoin()
+    end
+
+    local Wl1_d = Wline_d[1]
+    for a = 2, #Wline_d do
+      Wl1_d = Wl1_d * Wline_d[a]
+    end
+    
+    local Wl1_r = Wline_r[1]
+    for b = 2, #Wline_r do
+      Wl1_r = Wl1_r * Wline_r[b]
+    end
+
+    local Wl1_t = Wline_t[1]
+    for c = 2, #Wline_t do
+      Wl1_t = Wline_t[c] * Wl1_t
+    end
+    
+    local Wl1_l = Wline_l[1]
+    for d = 2, #Wline_l do
+      Wl1_l = Wline_l[d] * Wl1_l
+    end
+    
+    local Wl1 = Wl1_d * Wl1_r * Wl1_t * Wl1_l
+    return Wl1
+end
+
+local function Wilson_loop2(U, m, n, mu, nu)
+    local Wline_d = Wline_down(U, m, n, mu, nu)
+    local Wline_r = Wline_right(U, m, n, mu, nu)
+    local Wline_l = Wline_left(U, m, n, mu, nu)
+    local Wline_t = Wline_top(U, m, n, mu, nu)
+
+    -- attach :adjoin() to all elements of Wline_l
+    for i = 1, #Wline_l do
+        Wline_l[i] = Wline_l[i]:adjoin()
+    end
+
+    -- attach :adjoin() to all elements of Wline_t
+    for j = 1, #Wline_t do
+        Wline_t[j] = Wline_t[j]:adjoin()
+    end
+
+    local Wl1_d = Wline_d[1]
+    for a = 2, #Wline_d do
+      Wl1_d = Wl1_d * Wline_d[a]
+    end
+    
+    local Wl1_r = Wline_r[1]
+    for b = 2, #Wline_r do
+      Wl1_r = Wl1_r * Wline_r[b]
+    end
+
+    local Wl1_t = Wline_t[1]
+    for c = 2, #Wline_t do
+      Wl1_t = Wline_t[c] * Wl1_t
+    end
+    
+    local Wl1_l = Wline_l[1]
+    for d = 2, #Wline_l do
+      Wl1_l = Wline_l[d] * Wl1_l
+    end
+    
+    local Wl2 = Wl1_l * Wl1_d * Wl1_r * Wl1_t
+    for sh_n = 1, n do
+      Wl2 = (Wl2):shift(nu, "from_backward")
+    end 
+    return Wl2
+end
+
+local function Wilson_loop3(U, m, n, mu, nu)
+    local Wline_d = Wline_down(U, m, n, mu, nu)
+    local Wline_r = Wline_right(U, m, n, mu, nu)
+    local Wline_l = Wline_left(U, m, n, mu, nu)
+    local Wline_t = Wline_top(U, m, n, mu, nu)
+
+    -- attach :adjoin() to all elements of Wline_l
+    for i = 1, #Wline_l do
+        Wline_l[i] = Wline_l[i]:adjoin()
+    end
+
+    -- attach :adjoin() to all elements of Wline_t
+    for j = 1, #Wline_t do
+        Wline_t[j] = Wline_t[j]:adjoin()
+    end
+
+    local Wl1_d = Wline_d[1]
+    for a = 2, #Wline_d do
+      Wl1_d = Wl1_d * Wline_d[a]
+    end
+    
+    local Wl1_r = Wline_r[1]
+    for b = 2, #Wline_r do
+      Wl1_r = Wl1_r * Wline_r[b]
+    end
+
+    local Wl1_t = Wline_t[1]
+    for c = 2, #Wline_t do
+      Wl1_t = Wline_t[c] * Wl1_t
+    end
+    
+    local Wl1_l = Wline_l[1]
+    for d = 2, #Wline_l do
+      Wl1_l = Wline_l[d] * Wl1_l
+    end
+    
+    local Wl3 = Wl1_r * Wl1_t * Wl1_l * Wl1_d
+    for sh_m = 1, m do
+      Wl3 = (Wl3):shift(mu, "from_backward")
+    end 
+    return Wl3
+end
+
+local function Wilson_loop4(U, m, n, mu, nu)
+    local Wline_d = Wline_down(U, m, n, mu, nu)
+    local Wline_r = Wline_right(U, m, n, mu, nu)
+    local Wline_l = Wline_left(U, m, n, mu, nu)
+    local Wline_t = Wline_top(U, m, n, mu, nu)
+
+    -- attach :adjoin() to all elements of Wline_l
+    for i = 1, #Wline_l do
+        Wline_l[i] = Wline_l[i]:adjoin()
+    end
+
+    -- attach :adjoin() to all elements of Wline_t
+    for j = 1, #Wline_t do
+        Wline_t[j] = Wline_t[j]:adjoin()
+    end
+
+    local Wl1_d = Wline_d[1]
+    for a = 2, #Wline_d do
+      Wl1_d = Wl1_d * Wline_d[a]
+    end
+    
+    local Wl1_r = Wline_r[1]
+    for b = 2, #Wline_r do
+      Wl1_r = Wl1_r * Wline_r[b]
+    end
+
+    local Wl1_t = Wline_t[1]
+    for c = 2, #Wline_t do
+      Wl1_t = Wline_t[c] * Wl1_t
+    end
+    
+    local Wl1_l = Wline_l[1]
+    for d = 2, #Wline_l do
+      Wl1_l = Wline_l[d] * Wl1_l
+    end
+    
+    local Wl4 =  Wl1_t * Wl1_l * Wl1_d * Wl1_r
+    for sh_m = 1, m do
+      Wl4 = (Wl4):shift(mu, "from_backward")
+    end
+    for sh_n = 1, n do
+      Wl4 = (Wl4):shift(nu, "from_backward")
+    end
+    return Wl4
+end
+
+
+local function clover_loop_mxn(U, m, n, mu, nu)
+  local Wl1 = Wilson_loop1(U, m, n, mu, nu)
+  local Wl2 = Wilson_loop2(U, m, n, mu, nu)
+  local Wl3 = Wilson_loop3(U, m, n, mu, nu)
+  local Wl4 = Wilson_loop4(U, m, n, mu, nu)
+  return (Wl1 + Wl2 + Wl3 + Wl4)
+end
+
+
+function C_mxn(U, m, n, mu, nu)
+  local cloop_mxn = clover_loop_mxn(U, m, n, mu, nu)
+  local cloop_nxm = clover_loop_mxn(U, n, m, mu, nu)
+  return ((1.0/8.0)*((cloop_mxn) + (cloop_nxm)))
+end
+
