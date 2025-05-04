@@ -11,3 +11,16 @@
 # large data
 *.h5
 *.bb
+# ---------- Perlmutter scratch data ----------
+*.out
+*.dat
+*.dat.xml
+*.xml          # comment this out if you NEED tiny config XMLs
+*.h5
+*.nc
+*.lss
+*.log
+logs/
+output_3pt2pt_flow/
+save_GF_h5/
+results/
